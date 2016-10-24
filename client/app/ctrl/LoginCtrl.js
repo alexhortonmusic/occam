@@ -17,7 +17,10 @@ app.controller('LoginCtrl', function($scope, $http) {
       .then(res => {
         let msg = res.data.msg
         if (msg) {
-          
+          $scope.showMsg = true
+          $scope.msg = msg
+          $scope.password = ''
+          $scope.passwordConfirmation = ''
         }
       })
     }
