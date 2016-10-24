@@ -6,4 +6,20 @@ app.controller('LoginCtrl', function($scope, $http) {
       .then(res => {
         $scope.title = res.data.title
       })
+
+    $scope.addUser = () => {
+      let email = $scope.email
+      let password = $scope.password
+      let confirmation = $scope.passwordConfirmation
+
+      $http
+      .post('/api/login', { email, password, confirmation })
+      .then(res => {
+        let msg = res.data.msg
+        if (msg) {
+          
+        }
+      })
+    }
+
   })
