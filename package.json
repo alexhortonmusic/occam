@@ -1,0 +1,31 @@
+{
+  "name": "occam",
+  "version": "1.0.0",
+  "description": "Kanban-style application for groups to plan and communicate for big projects",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "node_modules/.bin/bower install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexhortonmusic/occam.git"
+  },
+  "author": "Alex Horton",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexhortonmusic/occam/issues"
+  },
+  "homepage": "https://github.com/alexhortonmusic/occam#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect-redis": "^3.1.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "mongoose": "^4.6.5",
+    "socket.io": "^1.5.1"
+  },
+  "devDependencies": {
+    "bower": "^1.7.9"
+  }
+}

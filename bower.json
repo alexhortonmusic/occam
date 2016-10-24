@@ -1,0 +1,23 @@
+{
+  "name": "occam",
+  "description": "Kanban-style application for groups to plan and communicate for big projects",
+  "main": "server.js",
+  "authors": [
+    "Alex Horton"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alexhortonmusic/occam",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "angular": "^1.5.8",
+    "socket.io-client": "^1.5.1"
+  }
+}

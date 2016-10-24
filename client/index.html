@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Occam | Simply Better</title>
+  </head>
+  <body>
+    <div ng-app='occam'>
+      <h1>Hello!</h1>
+
+      <div ng-controller='LoginCtrl'>
+        <h1>{{ title }}</h1>
+      </div>
+
+      <!-- <div ng-view></div> -->
+
+      <script src='/lib/angular/angular.min.js'></script>
+      <script src='/lib/angular-route/angular-route.min.js'></script>
+      <script src='/lib/socket.io-client/socket.io.js'></script>
+      <script src='/app/app.js'></script>
+
+      <!-- ctrl -->
+      <script src='/app/ctrl/LoginCtrl.js'></script>
+
+    </div> <!-- ng-app -->
+  </body>
+</html>
