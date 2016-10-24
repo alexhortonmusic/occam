@@ -3,26 +3,27 @@
 const { json } = require('body-parser')
 const { Server } = require('http')
 const express = require('express')
-const mongoose = require('mongoose')
-// const socketio = require('socket.io')
+const socketio = require('socket.io')
+
+const { connect } = require('../database')
 
 const app = express()
-// const server = Server(app)
-// const io = socketio(server)
+const server = Server(app)
+const io = socketio(server)
 
-const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/occam'
+
 const PORT = process.env.PORT || 3000
 
 app.use(express.static('client'))
 app.use(json())
 
-app.get('/', (req, res) => {
+app.get('/api/login', (req, res) => {
   console.log('hi')
-  res.json({ title: 'Howdy' })
+  res.json({ title: 'Hello' })
 })
 
-app.listen(3000)
-// mongoose.Promise = Promise
-// mongoose.connect(MONGODB_URL, () => {
-//   server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
-// })
+.connect()
+  .then(() => {
+    server.listen(PORT, () => console.log(`Listening on port ${PORT}`))
+  })
+  .catch(console.error)

@@ -1,11 +1,9 @@
 'use strict'
 
 app.controller('LoginCtrl', function($scope, $http) {
-    // $scope.title = 'Alex'
 
-    $http
-      .get('/')
+    $http.get('/api/login')
       .then(res => {
-        console.log('Hello')
+        $scope.title = res.data.title
       })
   })
