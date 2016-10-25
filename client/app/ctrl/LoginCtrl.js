@@ -12,15 +12,14 @@ app.controller('LoginCtrl', function($scope, $http, $location) {
       .post('/api/register', { email, password })
       .then(res => {
           console.log(res)
-          // $location.url('/profile')
           let email = res.data.email
           let password = res.data.password
           $http.post('/api/login', { email, password })
-          .then(() => $location.url('/boards'))
+          .then(() => $location.url('/fillOut'))
         })
     } else {
-      $scope.showMessage = true
-      $scope.msg = 'Passwords must match.'
+      $scope.regMessage = true
+      $scope.regMsg = 'Passwords must match.'
       $scope.regPassword = ''
       $scope.passwordConfirmation = ''
     }
@@ -33,8 +32,16 @@ app.controller('LoginCtrl', function($scope, $http, $location) {
     $http
     .post('/api/login', { email, password })
     .then(res => {
-      console.log(res)
-      $location.url('/boards')
+      if (res.data === 'Email or password is incorrect') {
+        $scope.logMessage = true
+        $scope.logMsg = res.data
+        $scope.email = ''
+        $scope.password = ''
+        console.log(res.data)
+      } else {
+        console.log(res)
+        $location.url('/boards')
+      }
     })
   }
 })

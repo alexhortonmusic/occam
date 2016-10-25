@@ -9,9 +9,13 @@ app
         templateUrl: 'partials/login.html',
         controller: 'LoginCtrl'
       })
+      .when('/fillOut', {
+        templateUrl: 'partials/fillOut.html',
+        controller: 'FillCtrl'
+      })
       .when('/boards', {
-        templateUrl: 'partials/boards.html',
-        controller: 'BoardCtrl'
+        templateUrl: 'partials/profile.html',
+        controller: 'ProfileCtrl'
       })
       .when('/logout', {
         templateUrl: 'partials/logout.html',

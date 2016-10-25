@@ -26,7 +26,7 @@ module.exports.create = ({ session, body: { email, password }}, res, err) => {
         session.email = email;
         res.json('signed in!')
       } else {
-        res.json('Password does not match')
+        res.json('Email or password is incorrect')
       }
     })
     .catch(err)

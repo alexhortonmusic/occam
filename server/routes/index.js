@@ -6,9 +6,11 @@ const router = Router()
 
 const register = require('./register')
 const login = require('./login')
+const fillOut = require('./fillOut')
 
 router.use(register)
 router.use(login)
+router.use(fillOut)
 
 router.get('/api/logout', (req, res) => {
   if (req.session.email) {
@@ -26,6 +28,11 @@ router.use((req, res, next) => {
     res.redirect('/login')
   }
 })
+
+
+// router.post('/api/profile', (req, res) => {
+//
+// })
 
 router.post('/api/logout', (req, res) => {
   req.session.destroy(err => {
