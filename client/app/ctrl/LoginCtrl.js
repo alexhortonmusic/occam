@@ -13,7 +13,15 @@ app.controller('LoginCtrl', function($scope, $http) {
       .then(res => {
           console.log(res)
           // $location.url('/profile')
+          let email = res.data.email
+          let password = res.data.password
+          $http.post('/api/login', { email, password })
+          .then(() => console.log('It worked'))
         })
+        // .then(res => {
+        //   console.log(res)
+        //
+        // })
     } else {
       $scope.showMessage = true
       $scope.msg = 'Passwords must match.'
@@ -25,8 +33,6 @@ app.controller('LoginCtrl', function($scope, $http) {
   $scope.login = () => {
     let email = $scope.email
     let password = $scope.password
-
-    console.log(email, password)
 
     $http
     .post('/api/login', { email, password })
