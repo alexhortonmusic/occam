@@ -1,6 +1,6 @@
 'use strict'
 
-app.controller('LoginCtrl', function($scope, $http) {
+app.controller('LoginCtrl', function($scope, $http, $location) {
 
   $scope.addUser = () => {
     let email = $scope.regEmail
@@ -16,12 +16,8 @@ app.controller('LoginCtrl', function($scope, $http) {
           let email = res.data.email
           let password = res.data.password
           $http.post('/api/login', { email, password })
-          .then(() => console.log('It worked'))
+          .then(() => $location.url('/boards'))
         })
-        // .then(res => {
-        //   console.log(res)
-        //
-        // })
     } else {
       $scope.showMessage = true
       $scope.msg = 'Passwords must match.'
@@ -38,6 +34,7 @@ app.controller('LoginCtrl', function($scope, $http) {
     .post('/api/login', { email, password })
     .then(res => {
       console.log(res)
+      $location.url('/boards')
     })
   }
 })
