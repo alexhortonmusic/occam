@@ -28,7 +28,7 @@ module.exports.create = ({ body: { email, password }}, res, err) => {
     }
   })
   .then(hash => User.create({ email, password: hash }))
-  .then(() => res.json( 'Registered successfully' ))
+  .then(() => res.json({ email, password }))
   .catch(err)
 
 }
