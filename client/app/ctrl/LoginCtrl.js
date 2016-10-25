@@ -26,10 +26,12 @@ app.controller('LoginCtrl', function($scope, $http) {
     let email = $scope.email
     let password = $scope.password
 
+    console.log(email, password)
+
     $http
     .post('/api/login', { email, password })
     .then(res => {
-      console.log(res.data)
+      console.log(res)
     })
   }
 })
