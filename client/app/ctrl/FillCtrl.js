@@ -25,7 +25,12 @@ app.controller('FillCtrl', function($scope, $http, $location) {
     $http
     .post('/api/fillOut', userInfo)
     .then(res => {
-      console.log(res)
+      // console.log(res)
+      if (res.data === 'success') {
+        $location.url('/boards')
+      } else {
+        console.log('FAIL')
+      }
     })
 
   }

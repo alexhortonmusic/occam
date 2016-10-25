@@ -17,6 +17,6 @@ module.exports.create = ({ body }, res, err) => {
       UserBio.create(body)
     }
   })
-  .then(() => res.json(body))
+  .then(() => res.json('success'))
   .catch(err)
 }
