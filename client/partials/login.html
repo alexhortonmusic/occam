@@ -1,12 +1,21 @@
-<h1>{{ title }}</h1>
-
+<h1>Register</h1>
 <form ng-submit='addUser()'>
   <h3>Email</h3>
-  <input type="text" ng-model='email'>
+  <input type='text' ng-model='regEmail'>
   <h3>Password</h3>
-  <input type="password" ng-model='password'>
+  <input type='password' ng-model='regPassword'>
   <h3>Password Confirmation</h3>
   <h3 ng-hide='showMsg = false'>{{ msg }}</h3>
-  <input type="password" ng-model='passwordConfirmation'>
+  <input type='password' ng-model='passwordConfirmation'>
+  <input type='submit' />
+</form>
+
+<h1>Sign In</h1>
+<form ng-submit='login()'>
+  <h3>Email</h3>
+  <input type='text' ng-model='email'>
+  <h3>Password</h3>
+  <input type='password' ng-model='password'>
+  <h3 ng-hide='showMsg = false'>{{ msg }}</h3>
   <input type='submit' />
 </form>

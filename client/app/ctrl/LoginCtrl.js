@@ -2,27 +2,34 @@
 
 app.controller('LoginCtrl', function($scope, $http) {
 
-    $http.get('/api/login')
-      .then(res => {
-        $scope.title = res.data.title
-      })
+  $scope.addUser = () => {
+    let email = $scope.regEmail
+    let password = $scope.regPassword
+    let confirmation = $scope.passwordConfirmation
 
-    $scope.addUser = () => {
-      let email = $scope.email
-      let password = $scope.password
-      let confirmation = $scope.passwordConfirmation
-
+    if (password === confirmation) {
       $http
-      .post('/api/login', { email, password, confirmation })
+      .post('/api/register', { email, password })
       .then(res => {
-        let msg = res.data.msg
-        if (msg) {
-          $scope.showMsg = true
-          $scope.msg = msg
-          $scope.password = ''
-          $scope.passwordConfirmation = ''
-        }
-      })
+          console.log(res)
+          // $location.url('/profile')
+        })
+    } else {
+      $scope.showMessage = true
+      $scope.msg = 'Passwords must match.'
+      $scope.regPassword = ''
+      $scope.passwordConfirmation = ''
     }
+  }
 
-  })
+  $scope.login = () => {
+    let email = $scope.email
+    let password = $scope.password
+
+    $http
+    .post('/api/login', { email, password })
+    .then(res => {
+      console.log(res.data)
+    })
+  }
+})
