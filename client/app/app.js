@@ -13,7 +13,7 @@ app
         templateUrl: 'partials/fillOut.html',
         controller: 'FillCtrl'
       })
-      .when('/boards', {
+      .when('/profile', {
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       })
@@ -21,4 +21,5 @@ app
         templateUrl: 'partials/logout.html',
         controller: 'LogoutCtrl'
       })
+      .otherwise('/profile')
   })

@@ -15,6 +15,7 @@ module.exports.create = ({ body }, res, err) => {
     if (!userBio) {
       console.log(body)
       UserBio.create(body)
+      .then(() => console.log('done'))
     }
   })
   .then(() => res.json('success'))

@@ -4,6 +4,15 @@ const bcrypt = require('bcrypt')
 
 const User = require('../models/User')
 
+module.exports.index = (req, res, err) => {
+  let sessionEmail = req.session.email
+  if (sessionEmail) {
+    res.json('signed in')
+  } else {
+    res.json('please sign in')
+  }
+}
+
 module.exports.create = ({ body: { email, password }}, res, err) => {
   User.findOne({ email })
   .then(user => {
@@ -21,9 +30,9 @@ module.exports.create = ({ body: { email, password }}, res, err) => {
           }
         })
       })
+      .then(hash => User.create({ email, password: hash }))
+      .then(() => res.json({ email, password }))
     }
   })
-  .then(hash => User.create({ email, password: hash }))
-  .then(() => res.json({ email, password }))
   .catch(err)
 }

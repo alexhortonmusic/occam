@@ -6,8 +6,8 @@ app.controller('FillCtrl', function($scope, $http, $location) {
   $http
   .get('/api/fillOut')
   .then(res => {
-    console.log(res.data.email)
     userEmail = res.data.email
+    console.log('userEmail', userEmail)
   })
 
 
@@ -27,7 +27,7 @@ app.controller('FillCtrl', function($scope, $http, $location) {
     .then(res => {
       // console.log(res)
       if (res.data === 'success') {
-        $location.url('/boards')
+        $location.url('/profile')
       } else {
         console.log('FAIL')
       }
