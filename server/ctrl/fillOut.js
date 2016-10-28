@@ -1,23 +1,33 @@
 'use strict'
 
-const UserBio = require('../models/UserBio')
+const User = require('../models/User')
+// const UserBio = require('../models/UserBio')
 
-module.exports.new = (req, res, err) => {
-  let email = req.session.email
-  console.log('Session', email)
-  res.json({ email })
+module.exports.index = ({ session: { email }}, res, err) => {
+  User.findOne({ email })
+  .then( user => {
+    res.json(user)
+  })
 }
 
-module.exports.create = ({ body }, res, err) => {
-  let email = body.email
-  UserBio.findOne({ email })
-  .then(userBio => {
-    if (!userBio) {
-      console.log(body)
-      UserBio.create(body)
-      .then(() => console.log('done'))
+module.exports.create = ({ session, body }, res, err) => {
+  let email = session.email
+  console.log('fillout stuff', body, email)
+  User.findOneAndUpdate({ email }, body, { upsert: true, new: true }, function(err, doc) {
+    if (err) {
+      console.log('Something went wrong')
     }
+    console.log("DOC", doc)
+    res.json(doc)
   })
-  .then(() => res.json('success'))
-  .catch(err)
+  // User.findOneAndUpdate({ email }, {})
+  // .then(userBio => {
+  //   if (!userBio) {
+  //     console.log(body)
+  //     UserBio.create(body)
+  //     .then(() => console.log('done'))
+  //   }
+  // })
+  // .then(thing => res.json(thing))
+  // .catch(err)
 }

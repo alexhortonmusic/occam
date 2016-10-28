@@ -1,19 +1,19 @@
 'use strict'
 
 app.controller('FillCtrl', function($scope, $http, $location) {
-  let userEmail
+  // let userEmail
 
   $http
   .get('/api/fillOut')
   .then(res => {
-    userEmail = res.data.email
-    console.log('userEmail', userEmail)
+    console.log(res)
+    // userEmail = res.data.email
+    // console.log('userEmail', userEmail)
   })
 
 
   $scope.newUserInfo = () => {
     let userInfo = {
-      email: userEmail,
       firstName: $scope.firstName,
       lastName: $scope.lastName,
       bio: $scope.bio,
@@ -25,13 +25,12 @@ app.controller('FillCtrl', function($scope, $http, $location) {
     $http
     .post('/api/fillOut', userInfo)
     .then(res => {
-      // console.log(res)
-      if (res.data === 'success') {
-        $location.url('/profile')
-      } else {
+      console.log(res)
+      if (res.data === '') {
         console.log('FAIL')
+      } else {
+        $location.url('/profile')
       }
     })
-
   }
 })
