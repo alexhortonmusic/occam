@@ -6,17 +6,17 @@ app.controller('LoginCtrl', function($scope, $http, $location) {
   .get('/api/register')
   .then(res => {
     if (res.data !== 'please sign in') {
-      $location.url('/profile')
+      // $location.url('/profile')
     }
   })
 
-  $http
-  .get('/api/login')
-  .then(res => {
-    if (res.data !== '') {
-      $location.url('/profile')
-    }
-  })
+  // $http
+  // .get('/api/login')
+  // .then(res => {
+  //   if (res.data !== '') {
+  //     $location.url('/profile')
+  //   }
+  // })
 
   $scope.addUser = () => {
     let email = $scope.regEmail

@@ -38,8 +38,11 @@ router.use((req, res, next) => {
 
 router.post('/api/logout', (req, res) => {
   req.session.destroy(err => {
-    if (err) throw err
-    res.json('logged out')
+    if (err) {
+      throw err
+    } else {
+      res.json('logged out')
+    }
   })
 })
 
