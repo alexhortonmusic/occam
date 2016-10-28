@@ -3,20 +3,13 @@
 app.controller('LoginCtrl', function($scope, $http, $location) {
 
   $http
-  .get('/api/register')
+  .get('/api/login')
   .then(res => {
-    if (res.data !== 'please sign in') {
-      // $location.url('/profile')
-    }
+    console.log(res)
+    // if (res.data !== '') {
+    //   $location.url('/profile')
+    // }
   })
-
-  // $http
-  // .get('/api/login')
-  // .then(res => {
-  //   if (res.data !== '') {
-  //     $location.url('/profile')
-  //   }
-  // })
 
   $scope.addUser = () => {
     let email = $scope.regEmail
@@ -52,15 +45,15 @@ app.controller('LoginCtrl', function($scope, $http, $location) {
     $http
     .post('/api/login', { email, password })
     .then(res => {
-      if (res.data === 'Email or password is incorrect') {
+      if (res.data.msg === 'Email or password is incorrect' || res.data.msg === 'Account does not exist') {
         $scope.logMessage = true
-        $scope.logMsg = res.data
+        $scope.logMsg = res.data.msg
         $scope.email = ''
         $scope.password = ''
-        console.log(res.data)
       } else {
-        console.log(res)
-        $location.url('/profile')
+        console.log("sign in res", res)
+        let userId = res.data._id
+        $location.url('/profile/' + userId)
       }
     })
   }
