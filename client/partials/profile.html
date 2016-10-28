@@ -1,10 +1,12 @@
 <h1>Profile</h1>
 
-<!-- <div ng-repeat='board in boards'></div> -->
+<div ng-repeat='board in boards'>
+  <h1>{{ board.boardName }}</h1>
+</div>
 
 <form ng-submit='createBoard()'>
-  
-
+  <input type="text" ng-model='boardName'>
+  <input type="submit" value='Submit'>
 </form>
 
 <a href="/#/logout">Logout</a>

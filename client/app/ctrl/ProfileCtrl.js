@@ -6,17 +6,21 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
   $http
   .get('/api/profile/' + $routeParams.id)
   .then(res => {
-    console.log(res)
+    $scope.boards = res.data
   })
 
-  $createBoard = () => {
+  $scope.createBoard = () => {
     let boardBody = {
       boardName: $scope.boardName,
-      boardOwnerId: $scope.ownerId
+      boardOwnerId: $routeParams.id,
+      members: []
     }
 
     $http
     .post('/api/profile/' + $routeParams.id, boardBody)
+    .then(res => {
+      console.log(res)
+    })
   }
 
 

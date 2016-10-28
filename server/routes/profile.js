@@ -9,4 +9,6 @@ router.get('/api/profile/:id', profile.index)
 
 router.post('/api/profile/:id', profile.create)
 
+router.put('/api/profile/:id', profile.edit)
+
 module.exports = router
