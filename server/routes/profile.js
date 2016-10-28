@@ -11,4 +11,6 @@ router.post('/api/profile/:id', profile.create)
 
 router.put('/api/profile/:id', profile.edit)
 
+router.delete('/api/profile/:id', profile.destroy)
+
 module.exports = router

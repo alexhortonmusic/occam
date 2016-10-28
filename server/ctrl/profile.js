@@ -6,7 +6,6 @@ module.exports.index = (req, res, err) => {
   let id = req.params.id
   BoardRoster.find({ boardOwnerId: id })
   .then(boards => {
-    console.log(boards)
     res.json(boards)
   })
 }
@@ -19,4 +18,16 @@ module.exports.create = (req, res, err) => {
 
 module.exports.edit = (req, res, err) => {
 
+}
+
+module.exports.destroy = (req, res, err) => {
+  let boardId = req.params.id
+  BoardRoster.findOneAndRemove({ _id: boardId }, function(err, doc, result) {
+    console.log(doc)
+  })
+  .then(document => {
+    if (document === null) {
+      res.json('deleted')
+    }
+  })
 }
