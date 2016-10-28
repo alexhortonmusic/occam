@@ -7,8 +7,8 @@ const router = Router()
 
 router.get('/api/profile', profile.index)
 
-router.get('/api/profile', profile.new)
-
-router.post('/api/profile', profile.create)
+// router.get('/api/profile', profile.new)
+//
+// router.post('/api/profile', profile.create)
 
 module.exports = router

@@ -10,7 +10,7 @@ module.exports = mongoose.model('BoardRoster', {
   boardOwnerEmail: {
     type: String,
     required: true
-  }
+  },
   members: [{
     email: String,
     firstName: String,

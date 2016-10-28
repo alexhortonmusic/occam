@@ -7,10 +7,12 @@ const router = Router()
 const register = require('./register')
 const login = require('./login')
 const fillOut = require('./fillOut')
-// const profile = require('./profile')
+const profile = require('./profile')
 
 router.use(register)
 router.use(login)
+router.use(fillOut)
+router.use(profile)
 
 
 router.get('/api/logout', (req, res) => {
@@ -29,10 +31,6 @@ router.use((req, res, next) => {
     res.json('must login')
   }
 })
-
-router.use(fillOut)
-// router.use(profile)
-
 
 // router.post('/api/profile', (req, res) => {
 //
