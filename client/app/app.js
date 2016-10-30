@@ -17,6 +17,10 @@ app
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       })
+      .when('/board/:boardId', {
+        templateUrl: 'partials/groupBoard.html',
+        controller: 'BoardCtrl'
+      })
       .when('/logout', {
         templateUrl: 'partials/logout.html',
         controller: 'LogoutCtrl'

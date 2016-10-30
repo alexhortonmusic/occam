@@ -7,7 +7,7 @@ app.controller('LogoutCtrl', function($scope, $http, $location) {
   .then(res => {
     console.log(res.data)
     if (res.data === 'not logged in') {
-      $location.url('/#/login')
+      $location.url('/#/')
     }
   })
 

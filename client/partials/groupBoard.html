@@ -1,0 +1,10 @@
+<h1>{{ boardName }}</h1>
+
+<div ng-repeat='list in boardLists'>
+  <h2>{{ list.name }}</h2>
+  <ul>
+    <li ng-repeat='item in boardLists.items'>
+      <p>{{ item }}</p>
+    </li>
+  </ul>
+</div>

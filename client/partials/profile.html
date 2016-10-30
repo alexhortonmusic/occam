@@ -3,7 +3,7 @@
 <div ng-repeat='board in boards'>
   <div id='board-{{ $index }}'>
     <div ng-show="!showEdit[$index]">
-      <h1>{{ board.boardName }}</h1>
+      <a href='/board/{{ board._id }}'>{{ board.boardName }}</a>
       <button ng-click='deleteBoard(board._id)'>Delete</button>
       <button ng-click='showEditBox($index)'>Edit</button>
     </div>
@@ -15,13 +15,6 @@
     </div>
   </div>
 </div>
-
-<!-- <div ng-show='editBox'>
-  <form ng-submit='editBoard(board._id)'>
-    <input type="text" ng-model='boardNameUpdate'>
-    <input type="submit" value='Submit'>
-  </form>
-</div> -->
 
 <form ng-submit='createBoard()'>
   <input type="text" ng-model='boardName'>
