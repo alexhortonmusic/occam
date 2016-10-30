@@ -1,5 +1,31 @@
 <h1>Profile</h1>
 
-<!-- <div ng-repeat='board in boards'></div> -->
+<div ng-repeat='board in boards'>
+  <div id='board-{{ $index }}'>
+    <div ng-show="!showEdit[$index]">
+      <h1>{{ board.boardName }}</h1>
+      <button ng-click='deleteBoard(board._id)'>Delete</button>
+      <button ng-click='showEditBox($index)'>Edit</button>
+    </div>
+    <div ng-show='showEdit[$index]'>
+      <form ng-submit='editBoard($index, board._id)'>
+        <input type="text" ng-model='boardNameUpdate[$index]'>
+        <input type="submit" value='Submit'>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- <div ng-show='editBox'>
+  <form ng-submit='editBoard(board._id)'>
+    <input type="text" ng-model='boardNameUpdate'>
+    <input type="submit" value='Submit'>
+  </form>
+</div> -->
+
+<form ng-submit='createBoard()'>
+  <input type="text" ng-model='boardName'>
+  <input type="submit" value='Submit'>
+</form>
 
 <a href="/#/logout">Logout</a>

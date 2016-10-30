@@ -26,21 +26,21 @@ router.get('/api/logout', (req, res) => {
 // guard middleware
 router.use((req, res, next) => {
   if (req.session) {
+    // console.log("Middle", req.session.email)
     next()
   } else {
     res.json('must login')
   }
 })
 
-// router.post('/api/profile', (req, res) => {
-//
-// })
 
 router.post('/api/logout', (req, res) => {
   req.session.destroy(err => {
-    if (err) throw err
-    res.json('logged out')
+    if (err) {
+      throw err
+    }
   })
+  res.json('logged out')
 })
 
 module.exports = router

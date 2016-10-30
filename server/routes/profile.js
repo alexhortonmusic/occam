@@ -5,10 +5,12 @@ const profile = require('../ctrl/profile')
 
 const router = Router()
 
-router.get('/api/profile', profile.index)
+router.get('/api/profile/:id', profile.index)
 
-// router.get('/api/profile', profile.new)
-//
-// router.post('/api/profile', profile.create)
+router.post('/api/profile/:id', profile.create)
+
+router.put('/api/profile/:id', profile.edit)
+
+router.delete('/api/profile/:id', profile.destroy)
 
 module.exports = router

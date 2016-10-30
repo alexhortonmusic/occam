@@ -7,13 +7,9 @@ module.exports = mongoose.model('BoardRoster', {
     type: String,
     required: true
   },
-  boardOwnerEmail: {
+  boardOwnerId: {
     type: String,
     required: true
   },
-  members: [{
-    email: String,
-    firstName: String,
-    lastName: String
-  }]
+  members: [String]
 })

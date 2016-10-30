@@ -1,7 +1,6 @@
 'use strict'
 
 const User = require('../models/User')
-// const UserBio = require('../models/UserBio')
 
 module.exports.index = ({ session: { email }}, res, err) => {
   User.findOne({ email })
@@ -20,14 +19,4 @@ module.exports.create = ({ session, body }, res, err) => {
     console.log("DOC", doc)
     res.json(doc)
   })
-  // User.findOneAndUpdate({ email }, {})
-  // .then(userBio => {
-  //   if (!userBio) {
-  //     console.log(body)
-  //     UserBio.create(body)
-  //     .then(() => console.log('done'))
-  //   }
-  // })
-  // .then(thing => res.json(thing))
-  // .catch(err)
 }
