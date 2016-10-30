@@ -17,7 +17,17 @@ module.exports.create = (req, res, err) => {
 }
 
 module.exports.edit = (req, res, err) => {
+  let boardId = req.params.id
+  let nameUpdate = req.body
 
+  BoardRoster.findOneAndUpdate({ _id: boardId }, nameUpdate, { new: true }, function (err, doc) {
+    if (err) {
+      console.log('Did not update name')
+    } else {
+      console.log(doc)
+      res.json(doc)
+    }
+  })
 }
 
 module.exports.destroy = (req, res, err) => {

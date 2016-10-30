@@ -25,6 +25,29 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
     })
   }
 
+  $scope.showEdit = []
+
+  $scope.showEditBox = (index) => {
+    $scope.showEdit[index] = true
+    console.log($scope.showEdit)
+  }
+
+  $scope.boardNameUpdate = []
+
+  $scope.editBoard = (index, boardId) => {
+    let newName = {
+      boardName: $scope.boardNameUpdate[index]
+    }
+
+    console.log(newName)
+
+    $http
+    .put('/api/profile/' + boardId, newName)
+    .then(updatedBoard => {
+      console.log(updatedBoard)
+    })
+  }
+
   $scope.deleteBoard = (boardId) => {
     console.log(boardId)
     $http
