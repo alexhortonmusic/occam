@@ -1,19 +1,42 @@
 <h1>{{ boardName }}</h1>
 
+<h2>New List</h2>
 <form ng-submit='newList()'>
   <input type="text" ng-model='listName'>
   <input type="submit" value='Submit'>
 </form>
 
 <div ng-repeat='list in boardLists'>
-  <h2 ng-click='deleteList(list)'>{{ list.name }}</h2>
+
+  <div ng-show='!showEditBoxList[$index]'>
+    <h2 ng-click='deleteList(list)'>{{ list.name }}</h2>
+    <button ng-click='showEditList($index)'>Edit Title</button>
+  </div>
+
+  <div ng-show='showEditBoxList[$index]'>
+    <p>Edit List Title</p>
+    <form ng-submit='editList($index, list._id)'>
+      <input type="text" ng-model='listEdit[$index]'>
+      <input type="submit" value='Save Edit'>
+    </form>
+  </div>
+
   <form ng-submit='newTask($index, list)'>
     <input type="text" ng-model='taskName[$index]'>
     <input type="submit" value='Submit'>
   </form>
   <ul>
     <li ng-repeat='task in list.tasks'>
-      <p ng-click='deleteTask(task, list)'>{{ task }}</p>
+      <div ng-show='!showEditBoxTask[$index]'>
+        <p ng-click='deleteTask(task, list)'>{{ task }}</p>
+        <button ng-click='showEditTask($index)'>Edit Task</button>
+      </div>
+      <div ng-show='showEditBoxTask[$index]'>
+        <form ng-submit='editTask($index, task)'>
+          <input type="text" ng-model='taskEdit[$index]'>
+          <input type="submit" value='Submit'>
+        </form>
+      </div>
     </li>
   </ul>
 </div>

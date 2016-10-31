@@ -98,3 +98,27 @@ module.exports.taskDestroy = (req, res, err) => {
     res.json(board)
   })
 }
+
+module.exports.editList = (req, res, err) => {
+  let boardId = req.params.boardId
+  let listId = req.params.listId
+  let newTitle = req.body.newTitle
+
+  Board.findOne({ _id: boardId})
+  .then(board => {
+    let listArr = board.lists
+
+    listArr.forEach((list) => {
+      if (list._id == listId) {
+        list.name = newTitle
+        console.log(list.name)
+      }
+    })
+    board.save()
+    res.json(board)
+  })
+}
+
+module.exports.editTask = (req, res, err) => {
+
+}

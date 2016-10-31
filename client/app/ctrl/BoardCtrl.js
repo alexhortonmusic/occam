@@ -43,7 +43,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     console.log(listId)
 
     $http
-    .put('/api/board/' + boardId + '/' + listId, { taskName })
+    .patch('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
       console.log(res.data)
     })
@@ -60,4 +60,38 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
       console.log(res)
     })
   }
+
+  // array used to manipulate dynamically created models with booleans
+  $scope.showEditBoxList = []
+  $scope.listEdit = []
+
+  $scope.showEditList = (index) => {
+    $scope.showEditBoxList[index] = true
+  }
+
+  $scope.editList = (index, listId) => {
+    let newTitle = $scope.listEdit[index]
+
+    console.log(listId)
+    console.log(newTitle)
+
+    $http
+    .put(`/api/board/${boardId}/${listId}`, { newTitle })
+    .then(res => {
+      console.log(res)
+      // $scope.showEditBoxList[index] = false
+    })
+  }
+
+
+  // $scope.showEditBoxTask = []
+  //
+  // $scope.showEditTask = (index) => {
+  //   $scope.showEditBoxTask[index] = true
+  // }
+  //
+  // $scope.editTask = (index, task) => {
+  //   console.log(task)
+  //   // $scope.showEditBoxTask[index] = false
+  // }
 })
