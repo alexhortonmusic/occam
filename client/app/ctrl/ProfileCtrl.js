@@ -8,15 +8,11 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
   $http
   .get('/api/profile/' + userId)
   .then(res => {
+    console.log(res)
     $scope.boards = res.data
   })
 
   $scope.createBoard = () => {
-    // let boardBody = {
-    //   boardName: $scope.boardName,
-    //   boardOwnerId: $routeParams.id,
-    //   members: []
-    // }
 
     let boardBody = {
       boardName: $scope.boardName,
@@ -24,16 +20,9 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
       members: [
         userId
       ],
-      tasks: [
-        {
-          name: 'Backlog',
-          tasks: [
-            'try hard',
-            'work hard'
-          ]
-        }
-      ]
+      tasks: []
     }
+    // in 'tasks' array, add objects as { name: '', tasks: ['stuff', 'other stuff']}
 
     $http
     .post('/api/profile/' + userId, boardBody)

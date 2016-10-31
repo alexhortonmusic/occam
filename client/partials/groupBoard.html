@@ -1,10 +1,19 @@
 <h1>{{ boardName }}</h1>
 
+<form ng-submit='newList()'>
+  <input type="text" ng-model='listName'>
+  <input type="submit" value='Submit'>
+</form>
+
 <div ng-repeat='list in boardLists'>
   <h2>{{ list.name }}</h2>
+  <!-- <form ng-submit='newTask($index, list.name)'>
+    <input type="text" ng-model='taskName[$index]'>
+    <input type="submit" value='Submit'>
+  </form> -->
   <ul>
-    <li ng-repeat='item in boardLists.items'>
-      <p>{{ item }}</p>
+    <li ng-repeat='task in boardLists.tasks'>
+      <p>{{ task }}</p>
     </li>
   </ul>
 </div>
