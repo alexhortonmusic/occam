@@ -8,12 +8,13 @@ const register = require('./register')
 const login = require('./login')
 const fillOut = require('./fillOut')
 const profile = require('./profile')
+// const board = require('./board')
 
 router.use(register)
 router.use(login)
 router.use(fillOut)
 router.use(profile)
-
+// router.use(board)
 
 router.get('/api/logout', (req, res) => {
   if (req.session.email) {

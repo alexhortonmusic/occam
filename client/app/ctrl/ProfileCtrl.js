@@ -12,10 +12,27 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
   })
 
   $scope.createBoard = () => {
+    // let boardBody = {
+    //   boardName: $scope.boardName,
+    //   boardOwnerId: $routeParams.id,
+    //   members: []
+    // }
+
     let boardBody = {
       boardName: $scope.boardName,
-      boardOwnerId: $routeParams.id,
-      members: []
+      boardOwnerId: userId,
+      members: [
+        userId
+      ],
+      tasks: [
+        {
+          name: 'Backlog',
+          tasks: [
+            'try hard',
+            'work hard'
+          ]
+        }
+      ]
     }
 
     $http

@@ -6,9 +6,9 @@ app.controller('FillCtrl', function($scope, $http, $location) {
   $http
   .get('/api/fillOut')
   .then(res => {
-    console.log(res)
-    // userEmail = res.data.email
-    // console.log('userEmail', userEmail)
+    if (!res.data) {
+      $location.url('/#/')
+    }
   })
 
 
@@ -29,7 +29,8 @@ app.controller('FillCtrl', function($scope, $http, $location) {
       if (res.data === '') {
         console.log('FAIL')
       } else {
-        $location.url('/profile')
+        let userId = res.data._id
+        $location.url('/profile/' + userId)
       }
     })
   }
