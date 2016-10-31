@@ -23,6 +23,17 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     })
   }
 
+  $scope.deleteList = (list) => {
+    console.log(list)
+    let listId = list._id
+
+    $http
+    .delete('/api/board/' + boardId + '/' + listId)
+    .then(res => {
+      console.log(res)
+    })
+  }
+
   $scope.taskName = []
 
   $scope.newTask = (index, list) => {
@@ -35,6 +46,18 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     .put('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
       console.log(res.data)
+    })
+  }
+
+  $scope.deleteTask = (task, list) => {
+    console.log(task)
+    console.log(list)
+    let listId = list._id
+
+    $http
+    .delete('/api/board/' + boardId + '/' + listId + '/' + task)
+    .then(res => {
+      console.log(res)
     })
   }
 })
