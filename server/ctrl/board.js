@@ -111,7 +111,6 @@ module.exports.editList = (req, res, err) => {
     listArr.forEach((list) => {
       if (list._id == listId) {
         list.name = newTitle
-        console.log(list.name)
       }
     })
     board.save()
@@ -119,6 +118,6 @@ module.exports.editList = (req, res, err) => {
   })
 }
 
-module.exports.editTask = (req, res, err) => {
-
-}
+// module.exports.editTask = (req, res, err) => {
+//
+// }

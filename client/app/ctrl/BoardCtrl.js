@@ -79,19 +79,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     .put(`/api/board/${boardId}/${listId}`, { newTitle })
     .then(res => {
       console.log(res)
-      // $scope.showEditBoxList[index] = false
+      $scope.showEditBoxList[index] = false
     })
   }
-
-
-  // $scope.showEditBoxTask = []
-  //
-  // $scope.showEditTask = (index) => {
-  //   $scope.showEditBoxTask[index] = true
-  // }
-  //
-  // $scope.editTask = (index, task) => {
-  //   console.log(task)
-  //   // $scope.showEditBoxTask[index] = false
-  // }
 })

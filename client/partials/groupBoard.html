@@ -1,4 +1,6 @@
+<a href="/#/profile"><<< Go Back</a>
 <h1>{{ boardName }}</h1>
+
 
 <h2>New List</h2>
 <form ng-submit='newList()'>
@@ -27,16 +29,7 @@
   </form>
   <ul>
     <li ng-repeat='task in list.tasks'>
-      <div ng-show='!showEditBoxTask[$index]'>
-        <p ng-click='deleteTask(task, list)'>{{ task }}</p>
-        <button ng-click='showEditTask($index)'>Edit Task</button>
-      </div>
-      <div ng-show='showEditBoxTask[$index]'>
-        <form ng-submit='editTask($index, task)'>
-          <input type="text" ng-model='taskEdit[$index]'>
-          <input type="submit" value='Submit'>
-        </form>
-      </div>
+      <p ng-click='deleteTask(task, list)'>{{ task }}</p>
     </li>
   </ul>
 </div>

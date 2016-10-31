@@ -22,7 +22,7 @@ router.delete('/api/board/:boardId/:listId/:task', board.taskDestroy)
 // edits list name
 router.put('/api/board/:boardId/:listId', board.editList)
 
-// edits list name
+// edits task 
 // router.put('/api/board/:boardId/:listId/:task', board.editTask)
 
 module.exports = router
