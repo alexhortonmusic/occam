@@ -1,10 +1,10 @@
 'use strict'
 
-const BoardRoster = require('../models/BoardRoster')
+const Board = require('../models/Board')
 
 module.exports.index = (req, res, err) => {
   let id = req.params.id
-  BoardRoster.find({ boardOwnerId: id })
+  Board.find({ boardOwnerId: id })
   .then(boards => {
     res.json(boards)
   })
@@ -12,7 +12,7 @@ module.exports.index = (req, res, err) => {
 
 module.exports.create = (req, res, err) => {
   let newBoard = req.body
-  BoardRoster.create(newBoard)
+  Board.create(newBoard)
   .then(board => res.json(board))
 }
 
@@ -20,7 +20,7 @@ module.exports.edit = (req, res, err) => {
   let boardId = req.params.id
   let nameUpdate = req.body
 
-  BoardRoster.findOneAndUpdate({ _id: boardId }, nameUpdate, { new: true }, function (err, doc) {
+  Board.findOneAndUpdate({ _id: boardId }, nameUpdate, { new: true }, function (err, doc) {
     if (err) {
       console.log('Did not update name')
     } else {
@@ -32,7 +32,7 @@ module.exports.edit = (req, res, err) => {
 
 module.exports.destroy = (req, res, err) => {
   let boardId = req.params.id
-  BoardRoster.findOneAndRemove({ _id: boardId }, function(err, doc, result) {
+  Board.findOneAndRemove({ _id: boardId }, function(err, doc, result) {
     console.log(doc)
   })
   .then(document => {

@@ -2,11 +2,20 @@
 
 const mongoose = require('mongoose')
 
-let taskSet = new Schema({
-  taskList: [String]
-})
+let listSet = {
+  name: String,
+  tasks: [String]
+}
 
 module.exports = mongoose.model('Board', {
-  boardId: String,
-  tasks: [taskSet]
+  boardName: {
+    type: String,
+    required: true
+  },
+  boardOwnerId: {
+    type: String,
+    required: true
+  },
+  members: [String],
+  lists: [ listSet ]
 })

@@ -3,7 +3,7 @@
 <div ng-repeat='board in boards'>
   <div id='board-{{ $index }}'>
     <div ng-show="!showEdit[$index]">
-      <a href='/board/{{ board._id }}'>{{ board.boardName }}</a>
+      <a href='/#/board/{{ board._id }}'>{{ board.boardName }}</a>
       <button ng-click='deleteBoard(board._id)'>Delete</button>
       <button ng-click='showEditBox($index)'>Edit</button>
     </div>

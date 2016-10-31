@@ -4,7 +4,6 @@ const { json } = require('body-parser')
 const { Server } = require('http')
 const express = require('express')
 const mongoose = require('mongoose')
-// const socketio = require('socket.io')
 const session = require('express-session')
 const RedisStore = require('connect-redis')(session)
 
@@ -12,7 +11,6 @@ const routes = require('./routes/')
 
 const app = express()
 const server = Server(app)
-// const io = socketio(server)
 
 const MONGODB_URL = process.env.MONGODB_URL || 'mongodb://localhost:27017/occam'
 const PORT = process.env.PORT || 3000
