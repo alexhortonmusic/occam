@@ -2,7 +2,7 @@
 
 const mongoose = require('mongoose')
 
-let taskSet = {
+let listSet = {
   name: String,
   tasks: [String]
 }
@@ -17,5 +17,5 @@ module.exports = mongoose.model('Board', {
     required: true
   },
   members: [String],
-  tasks: [ taskSet ]
+  lists: [ listSet ]
 })

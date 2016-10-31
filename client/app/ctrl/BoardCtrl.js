@@ -9,7 +9,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   .get('/api/board/' + boardId)
   .then(res => {
     $scope.boardName = res.data.boardName
-    $scope.boardLists = res.data.tasks
+    $scope.boardLists = res.data.lists
   })
 
   $scope.newList = () => {
@@ -17,7 +17,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     console.log(listName)
 
     $http
-    .put('/api/board/' + boardId, { name: listName })
+    .patch('/api/board/' + boardId, { name: listName })
     .then(res => {
       console.log(res.data)
     })
@@ -25,21 +25,16 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
 
   $scope.taskName = []
 
-  $scope.newTask = (index, listName) => {
-    console.log(listName)
+  $scope.newTask = (index, list) => {
     let taskName = $scope.taskName[index]
-    console.log(taskName)
-    let newTask = {
-      name: listName,
-      tasks: [
-        taskName
-      ]
-    }
+    let listId = list._id
+
+    console.log(listId)
 
     $http
-    .patch('/api/board/' + boardId, newTask)
+    .put('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
-      console.log(res)
+      console.log(res.data)
     })
   }
 })

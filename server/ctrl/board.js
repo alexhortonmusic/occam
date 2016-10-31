@@ -4,7 +4,6 @@ const Board = require('../models/Board')
 
 module.exports.index = (req, res, err) => {
   let id = req.params.boardId
-  console.log(id)
   Board.findOne({ _id: id})
   .then(board => {
     res.json(board)
@@ -15,27 +14,42 @@ module.exports.edit = (req, res, err) => {
   let id = req.params.boardId
   let newList = req.body
 
-  Board.findOneAndUpdate({ _id: id }, { $push: { tasks: newList } }, { new: true, upsert: true }, function (err, doc) {
+  console.log(newList)
+
+  Board.findOneAndUpdate({ _id: id }, { $push: { lists: newList } }, { new: true }, function (err, doc) {
     if (err) {
       console.log('Something went wrong')
     } else {
-      console.log(doc)
       res.json(doc)
     }
   })
 }
 
-// module.exports.new = (req, res, err) => {
-//   let id = req.params.boardId
-//   let newTask = req.body.tasks[0]
-//   let list = req.body.name
-//
-//   Board.findOneAndUpdate({ _id: id }, { tasks: { name: list, $push: { tasks: newTask } }}, { new: true, upsert: true }, function (err, doc) {
-//     if (err) {
-//       console.log('Something went wrong')
-//     } else {
-//       console.log(doc)
-//       res.json(doc)
-//     }
-//   })
-// }
+module.exports.new = (req, res, err) => {
+
+  let boardId = req.params.boardId
+  let listId = req.params.listId
+  let newTask = req.body.taskName
+
+  console.log(newTask)
+  console.log(listId)
+  console.log(boardId)
+
+  Board.findOne({ _id: boardId })
+  .then(board => {
+    let listArr = board.lists
+
+    let listIndex
+    listArr.forEach((list, index) => {
+      if (list._id == listId) {
+        console.log(index)
+        listIndex = index
+      }
+    })
+
+    let tasksArr = listArr[listIndex].tasks
+    tasksArr.push(newTask)
+    board.save()
+    res.json(board)
+  })
+}
