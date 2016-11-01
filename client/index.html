@@ -12,18 +12,29 @@
 
       <div ng-view></div>
 
-      <script src='/lib/angular/angular.min.js'></script>
-      <script src='/lib/angular-route/angular-route.min.js'></script>
-      <script src='/lib/socket.io-client/socket.io.js'></script>
-      <script src='/app/app.js'></script>
-
-      <!-- ctrl -->
-      <script src='/app/ctrl/LoginCtrl.js'></script>
-      <script src='/app/ctrl/FillCtrl.js'></script>
-      <script src='/app/ctrl/ProfileCtrl.js'></script>
-      <script src='/app/ctrl/BoardCtrl.js'></script>
-      <script src='/app/ctrl/LogoutCtrl.js'></script>
 
     </div> <!-- ng-app -->
+
+    <!-- libraries -->
+    <script src='/lib/angular/angular.min.js'></script>
+    <script src='/lib/angular-route/angular-route.min.js'></script>
+    <script src='lib/angular-drag-and-drop-lists/angular-drag-and-drop-lists.min.js'></script>
+
+    <!-- root file -->
+    <script src='/app/app.js'></script>
+
+    <!-- ctrl -->
+    <script src='/app/ctrl/LoginCtrl.js'></script>
+    <script src='/app/ctrl/FillCtrl.js'></script>
+    <script src='/app/ctrl/ProfileCtrl.js'></script>
+    <script src='/app/ctrl/BoardCtrl.js'></script>
+    <script src='/app/ctrl/LogoutCtrl.js'></script>
+
+    <!-- factories -->
+    <!-- <script src='/app/factories/LoginFactory.js'></script> -->
+    <!-- <script src='/app/factories/FillFactory.js'></script>
+    <script src='/app/factories/ProfileFactory.js'></script>
+    <script src='/app/factories/BoardFactory.js'></script>
+    <script src='/app/factories/LogoutFactory.js'></script> -->
   </body>
 </html>

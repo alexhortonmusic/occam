@@ -1,6 +1,6 @@
 'use strict'
 
-const app = angular.module('occam', ['ngRoute'])
+const app = angular.module('occam', ['ngRoute', 'dndLists'])
 
 app
   .config(function($routeProvider) {
