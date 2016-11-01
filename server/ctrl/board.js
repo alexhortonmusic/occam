@@ -16,8 +16,6 @@ module.exports.edit = (req, res, err) => {
   let id = req.params.boardId
   let newList = req.body
 
-  console.log(newList)
-
   Board.findOneAndUpdate({ _id: id }, { $push: { lists: newList } }, { new: true }, function (err, doc) {
     if (err) {
       console.log('Something went wrong')
@@ -34,10 +32,6 @@ module.exports.new = (req, res, err) => {
   let listId = req.params.listId
   let newTask = req.body.taskName
 
-  console.log(newTask)
-  console.log(listId)
-  console.log(boardId)
-
   Board.findOne({ _id: boardId })
   .then(board => {
     let listArr = board.lists
@@ -45,7 +39,6 @@ module.exports.new = (req, res, err) => {
     let listIndex
     listArr.forEach((list, index) => {
       if (list._id == listId) {
-        console.log(index)
         listIndex = index
       }
     })
@@ -88,7 +81,6 @@ module.exports.taskDestroy = (req, res, err) => {
         taskList = list.tasks
         taskList.forEach((task, index) => {
           if (task === taskToDelete) {
-            console.log(task)
             taskList.pull(task)
           }
         })

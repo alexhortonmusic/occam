@@ -5,22 +5,28 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   const boardId = $routeParams.boardId
 
   // gets current board
-  $http
-  .get('/api/board/' + boardId)
-  .then(res => {
-    $scope.boardName = res.data.boardName
-    $scope.boardLists = res.data.lists
-  })
+  const getBoards = () => {
+    $http
+    .get('/api/board/' + boardId)
+    .then(res => {
+      $scope.boardName = res.data.boardName
+      $scope.boardLists = res.data.lists
+    })
+  }
+
+  getBoards()
 
   $scope.newList = () => {
     let listName = $scope.listName
-    console.log(listName)
 
     $http
     .patch('/api/board/' + boardId, { name: listName })
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
     })
+    $scope.listName = ''
+
+    getBoards()
   }
 
   $scope.deleteList = (list) => {
@@ -30,9 +36,11 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .delete('/api/board/' + boardId + '/' + listId)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     })
+    getBoards()
   }
+
 
   $scope.taskName = []
 
@@ -40,25 +48,24 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     let taskName = $scope.taskName[index]
     let listId = list._id
 
-    console.log(listId)
-
     $http
     .patch('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
-      console.log(res.data)
+      // console.log(res.data)
     })
+    $scope.taskName[index] = ''
+    getBoards()
   }
 
   $scope.deleteTask = (task, list) => {
-    console.log(task)
-    console.log(list)
     let listId = list._id
 
     $http
     .delete('/api/board/' + boardId + '/' + listId + '/' + task)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     })
+    getBoards()
   }
 
   // array used to manipulate dynamically created models with booleans
@@ -72,14 +79,23 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   $scope.editList = (index, listId) => {
     let newTitle = $scope.listEdit[index]
 
-    console.log(listId)
-    console.log(newTitle)
-
     $http
     .put(`/api/board/${boardId}/${listId}`, { newTitle })
     .then(res => {
-      console.log(res)
-      $scope.showEditBoxList[index] = false
+      // console.log(res)
     })
+
+    $scope.showEditBoxList[index] = false
+    $scope.listEdit[index] = ''
+    getBoards()
+  }
+
+  $scope.selectedTask = []
+
+  $scope.taskToMove = (index, task, e) => {
+    $('.task').removeClass('selectedTask')
+    let test = $(e.target)
+    test.toggleClass('selectedTask')
+    // console.log(index, task)
   }
 })

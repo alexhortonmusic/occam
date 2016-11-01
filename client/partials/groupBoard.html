@@ -1,5 +1,5 @@
 <!-- back button -->
-<form><input Type="button" VALUE="<< Go Back" onClick="history.go(-1);return true;"></form>
+<form><input type="button" value="<< Go Back" onClick="history.go(-1);return true;"></form>
 <h1>{{ boardName }}</h1>
 
 
@@ -9,28 +9,32 @@
   <input type="submit" value='Submit'>
 </form>
 
-<div ng-repeat='list in boardLists'>
+<div class='listView'>
+  <div ng-repeat='list in boardLists' class='list'>
 
-  <div ng-show='!showEditBoxList[$index]'>
-    <h2 ng-click='deleteList(list)'>{{ list.name }}</h2>
-    <button ng-click='showEditList($index)'>Edit Title</button>
-  </div>
+    <div ng-show='!showEditBoxList[$index]'>
+      <h2 ng-click='deleteList(list)'>{{ list.name }}</h2>
+      <button ng-click='showEditList($index)'>Edit Title</button>
+    </div>
 
-  <div ng-show='showEditBoxList[$index]'>
-    <p>Edit List Title</p>
-    <form ng-submit='editList($index, list._id)'>
-      <input type="text" ng-model='listEdit[$index]'>
-      <input type="submit" value='Save Edit'>
+    <div ng-show='showEditBoxList[$index]'>
+      <p>Edit List Title</p>
+      <form ng-submit='editList($index, list._id)'>
+        <input type="text" ng-model='listEdit[$index]'>
+        <input type="submit" value='Save Edit'>
+      </form>
+    </div>
+
+    <form ng-submit='newTask($index, list)'>
+      <input type="text" ng-model='taskName[$index]'>
+      <input type="submit" value='Submit'>
     </form>
-  </div>
 
-  <form ng-submit='newTask($index, list)'>
-    <input type="text" ng-model='taskName[$index]'>
-    <input type="submit" value='Submit'>
-  </form>
-  <ul>
-    <li ng-repeat='task in list.tasks'>
-      <p ng-click='deleteTask(task, list)'>{{ task }}</p>
-    </li>
-  </ul>
+    <ul class='taskUL'>
+      <li ng-repeat='task in list.tasks' ng-click='taskToMove($index, task, $event)' class='task'>
+        <p>{{ task }}</p>
+        <button ng-click='deleteTask(task, list)'>Delete Task</button>
+      </li>
+    </ul>
+  </div>
 </div>

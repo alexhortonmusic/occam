@@ -1,0 +1,26 @@
+
+
+
+.listView {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%;
+
+  .list {
+    border: 1px solid black;
+    width: 320px;
+
+    .taskUL {
+
+      li {
+        list-style: none;
+        border: 1px solid red;
+      }
+
+      .selectedTask {
+        background-color: $green;
+      }
+    }
+  }
+}
