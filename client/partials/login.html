@@ -8,36 +8,42 @@
     </div>
   </div>
 
-  <div class='regLoginBox'>
+  <section class='regLogin'>
+    <div class='regLoginBox'>
 
-    <div class='register'>
-      <div>
-        <h1>Register</h1>
-        <form ng-submit='addUser()'>
-          <h3>Email</h3>
-          <input type='text' ng-model='regEmail'>
-          <h3>Password</h3>
-          <input type='password' ng-model='regPassword'>
-          <h3>Password Confirmation</h3>
-          <h3 ng-hide='regMessage = false'>{{ regMsg }}</h3>
-          <input type='password' ng-model='passwordConfirmation'>
-          <input type='submit' />
-        </form>
+      <div class='register'>
+        <div class='regWrap'>
+          <h1>Register</h1>
+          <form ng-submit='addUser()'>
+            <h3>Email</h3>
+            <input type='text' ng-model='regEmail'>
+            <h3>Password</h3>
+            <input type='password' ng-model='regPassword'>
+            <h3>Password Confirmation</h3>
+            <h3 ng-hide='regMessage = false' class='warning'>{{ regMsg }}</h3>
+            <input type='password' ng-model='passwordConfirmation'>
+            <input type='submit' value='✔️'/>
+          </form>
+        </div>
       </div>
-    </div>
 
-    <div class='login'>
-      <h1>Sign In</h1>
-      <h3 ng-hide='logMessage = false'>{{ logMsg }}</h3>
-      <form ng-submit='login()'>
-        <h3>Email</h3>
-        <input type='text' ng-model='email'>
-        <h3>Password</h3>
-        <input type='password' ng-model='password'>
-        <input type='submit' />
-      </form>
-    </div>
+      <div class='verticalLine'><p> </p></div>
 
-  </div>
+      <div class='login'>
+        <div class='logWrap'>
+          <h1>Sign In</h1>
+          <h3 ng-hide='logMessage = false' class='warning'>{{ logMsg }}</h3>
+          <form ng-submit='login()'>
+            <h3>Email</h3>
+            <input type='text' ng-model='email'>
+            <h3>Password</h3>
+            <input type='password' ng-model='password'>
+            <input type='submit' value='✔️'/>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </section>
 
 </div>

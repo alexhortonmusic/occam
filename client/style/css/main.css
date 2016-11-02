@@ -1,27 +1,94 @@
 .loginPage .splashImg {
   height: 500px;
   background-image: url("../img/quartet-work.jpg");
-  -webkit-filter: brightness(100%);
   background-size: cover;
   overflow: hidden; }
   .loginPage .splashImg .headlineBox {
+    border: 1px solid lightgrey;
+    border-radius: 5px;
     background-color: #e9ebee;
     width: 40%;
     height: 40%;
-    margin: 120px auto; }
+    margin: 120px auto;
+    text-align: center; }
     .loginPage .splashImg .headlineBox h1 {
-      color: #4c3b4d; }
+      font-weight: 300;
+      font-size: 4.2rem;
+      color: #4c3b4d;
+      margin: 0; }
     .loginPage .splashImg .headlineBox h2 {
-      color: #a7c4a0; }
-.loginPage .regLoginBox {
-  display: flex;
-  flex-direction: row; }
-  .loginPage .regLoginBox .register,
-  .loginPage .regLoginBox .login {
-    width: 50%; }
-  .loginPage .regLoginBox .register div,
-  .loginPage .regLoginBox .login div {
-    margin: 0 auto; }
+      font-weight: 300;
+      color: #a7c4a0;
+      margin: 0;
+      font-size: 3rem; }
+.loginPage .regLogin {
+  background-color: white;
+  overflow: hidden;
+  height: 450px; }
+  .loginPage .regLogin h1 {
+    color: #a7c4a0;
+    text-align: center;
+    font-weight: 300;
+    font-size: 3rem; }
+  .loginPage .regLogin .regLoginBox {
+    margin: 20px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; }
+    .loginPage .regLogin .regLoginBox .register,
+    .loginPage .regLogin .regLoginBox .login {
+      width: 48%; }
+      .loginPage .regLogin .regLoginBox .register h3,
+      .loginPage .regLogin .regLoginBox .login h3 {
+        color: #a7c4a0;
+        font-weight: 300;
+        margin-bottom: 8px; }
+      .loginPage .regLogin .regLoginBox .register input[type=text], .loginPage .regLogin .regLoginBox .register input[type=password],
+      .loginPage .regLogin .regLoginBox .login input[type=text],
+      .loginPage .regLogin .regLoginBox .login input[type=password] {
+        background-color: #e9ebee;
+        border-style: none;
+        border: 1px solid lightgrey;
+        border-radius: 5px;
+        height: 25px;
+        width: 80%; }
+      .loginPage .regLogin .regLoginBox .register input[type=text]:active, .loginPage .regLogin .regLoginBox .register input[type=password]:active,
+      .loginPage .regLogin .regLoginBox .register input[type=text]:hover, .loginPage .regLogin .regLoginBox .register input[type=password]:hover,
+      .loginPage .regLogin .regLoginBox .login input[type=text]:active,
+      .loginPage .regLogin .regLoginBox .login input[type=password]:active,
+      .loginPage .regLogin .regLoginBox .login input[type=text]:hover,
+      .loginPage .regLogin .regLoginBox .login input[type=password]:hover {
+        background-color: #f7fffc; }
+      .loginPage .regLogin .regLoginBox .register input[type=submit],
+      .loginPage .regLogin .regLoginBox .login input[type=submit] {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        background-color: #f7fffc;
+        border-style: none;
+        border: 2px solid #e9ebee;
+        margin-left: 10px; }
+      .loginPage .regLogin .regLoginBox .register input[type=submit]:hover,
+      .loginPage .regLogin .regLoginBox .register input[type=submit]:active,
+      .loginPage .regLogin .regLoginBox .login input[type=submit]:hover,
+      .loginPage .regLogin .regLoginBox .login input[type=submit]:active {
+        background-color: #c9eddc;
+        border: 2px solid #a7c4a0; }
+      .loginPage .regLogin .regLoginBox .register .warning,
+      .loginPage .regLogin .regLoginBox .login .warning {
+        color: #4c3b4d; }
+      .loginPage .regLogin .regLoginBox .register .regWrap,
+      .loginPage .regLogin .regLoginBox .login .regWrap {
+        width: 50%;
+        height: 300px;
+        margin: 0 auto; }
+    .loginPage .regLogin .regLoginBox .verticalLine {
+      margin-top: 10px;
+      border: 1px solid #e9ebee;
+      height: 400px; }
+    .loginPage .regLogin .regLoginBox .login .logWrap {
+      width: 50%;
+      margin: 0 auto; }
 
 .listView {
   display: flex;
@@ -37,12 +104,12 @@
     .listView .list .taskUL .selectedTask {
       background-color: #a7c4a0; }
 
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
-  font-weight: 300; }
+  background-color: #e9ebee; }
 
 .container {
   width: 90%;
