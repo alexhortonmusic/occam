@@ -8,6 +8,9 @@ app.controller('FillCtrl', function($scope, $http, $location) {
   .then(res => {
     if (!res.data) {
       $location.url('/#/')
+    } else {
+      console.log(res)
+      $scope.userEmail = res.data.email
     }
   })
 

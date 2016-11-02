@@ -1,0 +1,125 @@
+.profilePage {
+  background-color: $white;
+  height: 800px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  .bioCol {
+    width: 20%;
+    border-radius: 5px;
+    min-height: 400px;
+    height: 40%;
+    background-color: $purple;
+    color: $mint;
+    margin-top: 100px;
+
+    h3, h4 {
+      text-align: center;
+    }
+
+    p {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    a {
+      color: $white;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 20px;
+      text-align: center;
+      transition: 0.2s;
+    }
+
+    a:hover {
+      color: $mint;
+      text-decoration: underline;
+      transition: 0.2s;
+    }
+
+    .logout {
+      margin-top: 30px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: 0.2s;
+    }
+
+    .logout:hover {
+      letter-spacing: 5px;
+      color: $white;
+      text-decoration: none;
+      transition: 0.2s;
+    }
+  }
+
+  .boardsCol {
+
+    h1 {
+      color: $green;
+      font-weight: 300;
+      text-align: center;
+      margin-top: 60px;
+      margin-bottom: 60px;
+    }
+
+    .boards {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      width: 60%;
+      margin: 0 auto;
+
+      .existingBoard {
+        border: 1px solid grey;
+        margin-bottom: 30px;
+        border-radius: 5px;
+        background-color: $mint;
+        width: 200px;
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .boardName {
+          text-decoration: none;
+          color: $grey;
+          font-size: 1.5rem;
+          text-align: center;
+          transition: 0.2s;
+        }
+
+        .boardName:hover {
+          letter-spacing: 2px;
+          color: $purple;
+          transition: 0.2s;
+        }
+
+        .editInput {
+          background-color: $white;
+          border-style: none;
+          font-family: 'Lato';
+          font-size: 1.4rem;
+          color: $purple;
+          width: 80%;
+          margin-left: 18px;
+        }
+
+        input[type=submit] {
+          margin: 5px auto;
+          display: block;
+        }
+
+        .btnWrap {
+          width: 20%;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+        }
+      }
+    }
+  }
+}

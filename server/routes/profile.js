@@ -5,6 +5,8 @@ const profile = require('../ctrl/profile')
 
 const router = Router()
 
+router.get('/api/:id', profile.getUser)
+
 router.get('/api/profile/:id', profile.index)
 
 router.post('/api/profile/:id', profile.create)

@@ -1,0 +1,63 @@
+.fillPage {
+  background-color: $white;
+  height: 100%;
+  overflow: hidden;
+
+  h2 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
+  .fillForm {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 0 auto;
+
+    .inputWrap {
+      margin: 0 auto;
+
+      .fillInputs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20px;
+
+        input[type=text], textarea {
+          width: 300px;
+          background-color: $smoke;
+          border-style: none;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+        }
+
+        input[type=text] {
+          height: 25px;
+        }
+
+        input[type=text]:hover,
+        input[type=text]:active,
+        textarea:hover {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  input[type=submit] {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: $mint;
+    border-style: none;
+    border: 2px solid $smoke;
+    // margin-left: 10px;
+    margin: 10px auto;
+  }
+
+  input[type=submit]:hover,
+  input[type=submit]:active {
+    background-color: $mint;
+    border: 2px solid $green;
+  }
+}
