@@ -135,6 +135,52 @@
     background-color: #c9eddc;
     border: 2px solid #a7c4a0; }
 
+.profilePage {
+  background-color: #f7fffc;
+  height: 800px;
+  overflow: hidden; }
+  .profilePage h1 {
+    color: #a7c4a0;
+    font-weight: 300;
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .profilePage .boards {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 60%;
+    margin: 0 auto; }
+    .profilePage .boards .existingBoard {
+      border: 1px solid grey;
+      margin-bottom: 30px;
+      border-radius: 5px;
+      background-color: #c9eddc;
+      width: 200px;
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around; }
+      .profilePage .boards .existingBoard .boardName {
+        text-decoration: none;
+        color: #4c3b4d;
+        font-size: 1.5rem;
+        text-align: center; }
+      .profilePage .boards .existingBoard .editInput {
+        background-color: #f7fffc;
+        border-style: none;
+        font-family: 'Lato';
+        font-size: 1.4rem;
+        color: #4c3b4d;
+        width: 80%;
+        margin-left: 18px; }
+      .profilePage .boards .existingBoard input[type=submit] {
+        margin: 5px auto;
+        display: block; }
+      .profilePage .boards .existingBoard .btnWrap {
+        margin: 0 auto; }
+
 .listView {
   display: flex;
   flex-direction: row;

@@ -1,24 +1,33 @@
-<h1>Profile</h1>
+<div class='profilePage'>
+  <h1>With Occam, you can check out an existing project...</h1>
 
-<div ng-repeat='board in boards'>
-  <div id='board-{{ $index }}'>
-    <div ng-show="!showEdit[$index]">
-      <a href='/#/board/{{ board._id }}'>{{ board.boardName }}</a>
-      <button ng-click='deleteBoard(board._id)'>Delete</button>
-      <button ng-click='showEditBox($index)'>Edit</button>
-    </div>
-    <div ng-show='showEdit[$index]'>
-      <form ng-submit='editBoard($index, board._id)'>
-        <input type="text" ng-model='boardNameUpdate[$index]'>
-        <input type="submit" value='Submit'>
-      </form>
+  <div class='boards'>
+    <div ng-repeat='board in boards'>
+      <div id='board-{{ $index }}'>
+        <div class='existingBoard'>
+          <a href='/#/board/{{ board._id }}' class='boardName' ng-show="!showEdit[$index]">{{ board.boardName }}</a>
+          <form ng-submit='editBoard($index, board._id)' ng-show='showEdit[$index]'>
+            <input type="text" ng-model='boardNameUpdate[$index]' class='editInput' autofocus>
+            <input type="submit" value='Finish'>
+          </form>
+          <div class='btnWrap'>
+            <!-- <button ng-click='deleteBoard(board._id)'>X</button> -->
+            <i class="fa fa-trash-o" aria-hidden="true" ng-click='deleteBoard(board._id)'></i>
+            <!-- <button ng-click='showEditBox($index)'>Edit</button> -->
+            <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click='showEditBox($index)'></i>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <h1>or start something new.</h1>
+
+  <form ng-submit='createBoard()'>
+    <input type="text" ng-model='boardName'>
+    <input type="submit" value='Submit'>
+  </form>
+
+  <a href="/#/logout">Logout</a>
+
 </div>
-
-<form ng-submit='createBoard()'>
-  <input type="text" ng-model='boardName'>
-  <input type="submit" value='Submit'>
-</form>
-
-<a href="/#/logout">Logout</a>
