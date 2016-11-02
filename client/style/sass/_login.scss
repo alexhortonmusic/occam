@@ -1,0 +1,49 @@
+.loginPage {
+
+  .splashImg {
+    height: 500px;
+    background-image: url('../img/quartet-work.jpg');
+    -webkit-filter: brightness(100%);
+    background-size: cover;
+    overflow: hidden;
+
+    .headlineBox {
+      // z-index: 999;
+      background-color: $smoke;
+      width: 40%;
+      height: 40%;
+      margin: 120px auto;
+
+      h1 {
+        color: $purple;
+      }
+
+      h2 {
+        color: $green;
+      }
+
+    }
+
+  }
+
+  .regLoginBox {
+    display: flex;
+    flex-direction: row;
+
+    .register,
+    .login {
+      width: 50%;
+    }
+
+    .register div,
+    .login div {
+      margin: 0 auto;
+    }
+
+    .login {
+
+    }
+
+  }
+
+}

@@ -3,6 +3,7 @@ $mint: #c9eddc;
 $grey: #6a706e;
 $green: #a7c4a0;
 $white: #f7fffc;
+$smoke: #e9ebee;
 
 
 // imports
@@ -10,3 +11,16 @@ $white: #f7fffc;
 @import 'fillOut';
 @import 'profile';
 @import 'board';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
