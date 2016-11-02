@@ -94,32 +94,32 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   $scope.selectedTask = []
 
   let taskName
+  let oldList
   $scope.taskToMove = (list, task, e) => {
     $('.task').removeClass('selectedTask')
     let test = $(e.target)
     test.addClass('selectedTask')
     taskName = task
+    oldList = list
   }
 
   $scope.taskToNewBoard = (newList) => {
-    console.log(taskName)
-    console.log(newList)
+    let oldListId = oldList._id
     let listId = newList._id
 
     // deletes task from current list
     $http
-    .delete('/api/board/' + boardId + '/' + listId + '/' + taskName)
+    .delete('/api/board/' + boardId + '/' + oldListId + '/' + taskName)
     .then(res => {
-      console.log(res)
+      // console.log(res.data)
     })
 
     // adds task to new list
     $http
     .patch('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
-      console.log(res.data)
+      // console.log(res.data)
     })
-
     getBoard()
   }
 })
