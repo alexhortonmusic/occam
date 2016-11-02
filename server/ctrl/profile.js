@@ -1,12 +1,22 @@
 'use strict'
 
 const Board = require('../models/Board')
+const User = require('../models/User')
 
 module.exports.index = (req, res, err) => {
   let id = req.params.id
   Board.find({ boardOwnerId: id })
   .then(boards => {
     res.json(boards)
+  })
+}
+
+module.exports.getUser = (req, res, err) => {
+  let userId = req.params.id
+
+  User.findOne({ _id: userId })
+  .then(user => {
+    res.json(user)
   })
 }
 

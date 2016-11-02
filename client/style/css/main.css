@@ -138,21 +138,58 @@
 .profilePage {
   background-color: #f7fffc;
   height: 800px;
-  overflow: hidden; }
-  .profilePage h1 {
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around; }
+  .profilePage .bioCol {
+    width: 20%;
+    border-radius: 5px;
+    min-height: 400px;
+    height: 40%;
+    background-color: #4c3b4d;
+    color: #c9eddc;
+    margin-top: 100px; }
+    .profilePage .bioCol h3, .profilePage .bioCol h4 {
+      text-align: center; }
+    .profilePage .bioCol p {
+      text-align: center;
+      margin-bottom: 20px; }
+    .profilePage .bioCol a {
+      color: #f7fffc;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 20px;
+      text-align: center;
+      transition: 0.2s; }
+    .profilePage .bioCol a:hover {
+      color: #c9eddc;
+      text-decoration: underline;
+      transition: 0.2s; }
+    .profilePage .bioCol .logout {
+      margin-top: 30px;
+      text-decoration: none;
+      font-size: 1.5rem;
+      transition: 0.2s; }
+    .profilePage .bioCol .logout:hover {
+      letter-spacing: 5px;
+      color: #f7fffc;
+      text-decoration: none;
+      transition: 0.2s; }
+  .profilePage .boardsCol h1 {
     color: #a7c4a0;
     font-weight: 300;
     text-align: center;
     margin-top: 60px;
     margin-bottom: 60px; }
-  .profilePage .boards {
+  .profilePage .boardsCol .boards {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     width: 60%;
     margin: 0 auto; }
-    .profilePage .boards .existingBoard {
+    .profilePage .boardsCol .boards .existingBoard {
       border: 1px solid grey;
       margin-bottom: 30px;
       border-radius: 5px;
@@ -162,12 +199,17 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around; }
-      .profilePage .boards .existingBoard .boardName {
+      .profilePage .boardsCol .boards .existingBoard .boardName {
         text-decoration: none;
-        color: #4c3b4d;
+        color: #6a706e;
         font-size: 1.5rem;
-        text-align: center; }
-      .profilePage .boards .existingBoard .editInput {
+        text-align: center;
+        transition: 0.2s; }
+      .profilePage .boardsCol .boards .existingBoard .boardName:hover {
+        letter-spacing: 2px;
+        color: #4c3b4d;
+        transition: 0.2s; }
+      .profilePage .boardsCol .boards .existingBoard .editInput {
         background-color: #f7fffc;
         border-style: none;
         font-family: 'Lato';
@@ -175,11 +217,15 @@
         color: #4c3b4d;
         width: 80%;
         margin-left: 18px; }
-      .profilePage .boards .existingBoard input[type=submit] {
+      .profilePage .boardsCol .boards .existingBoard input[type=submit] {
         margin: 5px auto;
         display: block; }
-      .profilePage .boards .existingBoard .btnWrap {
-        margin: 0 auto; }
+      .profilePage .boardsCol .boards .existingBoard .btnWrap {
+        width: 20%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
 
 .listView {
   display: flex;

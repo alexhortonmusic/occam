@@ -4,12 +4,28 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
 
   let userId = $routeParams.id
 
+  const getUser = () => {
+    $http
+    .get(`/api/${userId}/`)
+    .then(res => {
+      console.log(res.data)
+      $scope.firstName = res.data.firstName
+      $scope.lastName = res.data.lastName
+      $scope.bio = res.data.bio
+      $scope.gitHub = res.data.gitHub
+      $scope.linkedIn = res.data.linkedIn
+      $scope.personalSite = res.data.personalSite
+    })
+  }
+
+  getUser()
+
   // gets existing boards
   const getBoards = () => {
     $http
     .get('/api/profile/' + userId)
     .then(res => {
-      console.log(res)
+      // console.log(res)
       $scope.boards = res.data
     })
   }
