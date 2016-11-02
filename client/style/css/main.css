@@ -1,3 +1,28 @@
+.loginPage .splashImg {
+  height: 500px;
+  background-image: url("../img/quartet-work.jpg");
+  -webkit-filter: brightness(100%);
+  background-size: cover;
+  overflow: hidden; }
+  .loginPage .splashImg .headlineBox {
+    background-color: #e9ebee;
+    width: 40%;
+    height: 40%;
+    margin: 120px auto; }
+    .loginPage .splashImg .headlineBox h1 {
+      color: #4c3b4d; }
+    .loginPage .splashImg .headlineBox h2 {
+      color: #a7c4a0; }
+.loginPage .regLoginBox {
+  display: flex;
+  flex-direction: row; }
+  .loginPage .regLoginBox .register,
+  .loginPage .regLoginBox .login {
+    width: 50%; }
+  .loginPage .regLoginBox .register div,
+  .loginPage .regLoginBox .login div {
+    margin: 0 auto; }
+
 .listView {
   display: flex;
   flex-direction: row;
@@ -11,5 +36,16 @@
       border: 1px solid red; }
     .listView .list .taskUL .selectedTask {
       background-color: #a7c4a0; }
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300; }
+
+.container {
+  width: 90%;
+  margin: 0 auto; }
 
 /*# sourceMappingURL=main.css.map */

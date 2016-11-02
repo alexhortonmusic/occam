@@ -9,8 +9,16 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .get('/api/board/' + boardId)
     .then(res => {
+      // let userId = res.data.boardOwnerId
       $scope.boardName = res.data.boardName
       $scope.boardLists = res.data.lists
+
+      $http
+      .get('/api/login')
+      .then(res => {
+        console.log(res)
+        $scope.user = res.data
+      })
     })
   }
 
@@ -104,22 +112,27 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   }
 
   $scope.taskToNewBoard = (newList) => {
-    let oldListId = oldList._id
-    let listId = newList._id
+    if (!taskName) {
+      console.log('Select a task to move!')
+    } else {
+      let oldListId = oldList._id
+      let listId = newList._id
 
-    // deletes task from current list
-    $http
-    .delete('/api/board/' + boardId + '/' + oldListId + '/' + taskName)
-    .then(res => {
-      // console.log(res.data)
-    })
+      // deletes task from current list
+      $http
+      .delete('/api/board/' + boardId + '/' + oldListId + '/' + taskName)
+      .then(res => {
+        // console.log(res.data)
+      })
 
-    // adds task to new list
-    $http
-    .patch('/api/board/' + boardId + '/' + listId, { taskName })
-    .then( res => {
-      // console.log(res.data)
-    })
-    getBoard()
+      // adds task to new list
+      $http
+      .patch('/api/board/' + boardId + '/' + listId, { taskName })
+      .then( res => {
+        // console.log(res.data)
+      })
+      getBoard()
+    }
+
   }
 })

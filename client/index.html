@@ -5,13 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Occam | Simply Better</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+    <!-- icons -->
+    <script src="https://use.fontawesome.com/022879ddbb.js"></script>
     <link rel="stylesheet" href="/style/css/main.css">
   </head>
   <body>
     <div ng-app='occam'>
-      <h1>Occam</h1>
+      <div ng-include="'/partials/nav.html'"></div>
 
-      <div ng-view></div>
+      <div ng-view class='container'></div>
 
     </div> <!-- ng-app -->
 
