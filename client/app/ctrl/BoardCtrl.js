@@ -5,7 +5,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   const boardId = $routeParams.boardId
 
   // gets current board
-  const getBoards = () => {
+  const getBoard = () => {
     $http
     .get('/api/board/' + boardId)
     .then(res => {
@@ -14,7 +14,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     })
   }
 
-  getBoards()
+  getBoard()
 
   $scope.newList = () => {
     let listName = $scope.listName
@@ -26,7 +26,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     })
     $scope.listName = ''
 
-    getBoards()
+    getBoard()
   }
 
   $scope.deleteList = (list) => {
@@ -38,7 +38,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     .then(res => {
       // console.log(res)
     })
-    getBoards()
+    getBoard()
   }
 
 
@@ -54,18 +54,19 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
       // console.log(res.data)
     })
     $scope.taskName[index] = ''
-    getBoards()
+    getBoard()
   }
 
-  $scope.deleteTask = (task, list) => {
+  $scope.deleteTask = (taskName, list) => {
+    console.log(taskName)
     let listId = list._id
 
     $http
-    .delete('/api/board/' + boardId + '/' + listId + '/' + task)
+    .delete('/api/board/' + boardId + '/' + listId + '/' + taskName)
     .then(res => {
       // console.log(res)
     })
-    getBoards()
+    getBoard()
   }
 
   // array used to manipulate dynamically created models with booleans
@@ -87,15 +88,38 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
 
     $scope.showEditBoxList[index] = false
     $scope.listEdit[index] = ''
-    getBoards()
+    getBoard()
   }
 
   $scope.selectedTask = []
 
-  $scope.taskToMove = (index, task, e) => {
+  let taskName
+  $scope.taskToMove = (list, task, e) => {
     $('.task').removeClass('selectedTask')
     let test = $(e.target)
-    test.toggleClass('selectedTask')
-    // console.log(index, task)
+    test.addClass('selectedTask')
+    taskName = task
+  }
+
+  $scope.taskToNewBoard = (newList) => {
+    console.log(taskName)
+    console.log(newList)
+    let listId = newList._id
+
+    // deletes task from current list
+    $http
+    .delete('/api/board/' + boardId + '/' + listId + '/' + taskName)
+    .then(res => {
+      console.log(res)
+    })
+
+    // adds task to new list
+    $http
+    .patch('/api/board/' + boardId + '/' + listId, { taskName })
+    .then( res => {
+      console.log(res.data)
+    })
+
+    getBoard()
   }
 })

@@ -64,12 +64,12 @@ module.exports.destroy = (req, res, err) => {
   })
 }
 
-module.exports.taskDestroy = (req, res, err) => {
-  console.log(req.params)
-
+module.exports.taskDestroy = (req, res, err) => { 
   let boardId = req.params.boardId
   let listId = req.params.listId
   let taskToDelete = req.params.task
+
+  console.log(boardId, listId, taskToDelete)
 
   Board.findOne({ _id: boardId })
   .then(board => {
@@ -109,7 +109,3 @@ module.exports.editList = (req, res, err) => {
     res.json(board)
   })
 }
-
-// module.exports.editTask = (req, res, err) => {
-//
-// }

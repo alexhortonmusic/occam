@@ -13,7 +13,8 @@
   <div ng-repeat='list in boardLists' class='list'>
 
     <div ng-show='!showEditBoxList[$index]'>
-      <h2 ng-click='deleteList(list)'>{{ list.name }}</h2>
+      <h2 ng-click='taskToNewBoard(list)'>{{ list.name }}</h2>
+      <button ng-click='deleteList(list)'>Delete List</button>
       <button ng-click='showEditList($index)'>Edit Title</button>
     </div>
 
@@ -31,7 +32,7 @@
     </form>
 
     <ul class='taskUL'>
-      <li ng-repeat='task in list.tasks' ng-click='taskToMove($index, task, $event)' class='task'>
+      <li ng-repeat='task in list.tasks' ng-click='taskToMove(list, task, $event)' class='task'>
         <p>{{ task }}</p>
         <button ng-click='deleteTask(task, list)'>Delete Task</button>
       </li>
