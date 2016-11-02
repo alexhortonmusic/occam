@@ -90,6 +90,51 @@
       width: 50%;
       margin: 0 auto; }
 
+.fillPage {
+  background-color: #f7fffc;
+  height: 100%;
+  overflow: hidden; }
+  .fillPage h2 {
+    text-align: center;
+    margin-top: 60px;
+    margin-bottom: 60px; }
+  .fillPage .fillForm {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    margin: 0 auto; }
+    .fillPage .fillForm .inputWrap {
+      margin: 0 auto; }
+      .fillPage .fillForm .inputWrap .fillInputs {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 20px; }
+        .fillPage .fillForm .inputWrap .fillInputs input[type=text], .fillPage .fillForm .inputWrap .fillInputs textarea {
+          width: 300px;
+          background-color: #e9ebee;
+          border-style: none;
+          border: 1px solid lightgrey;
+          border-radius: 5px; }
+        .fillPage .fillForm .inputWrap .fillInputs input[type=text] {
+          height: 25px; }
+        .fillPage .fillForm .inputWrap .fillInputs input[type=text]:hover,
+        .fillPage .fillForm .inputWrap .fillInputs input[type=text]:active,
+        .fillPage .fillForm .inputWrap .fillInputs textarea:hover {
+          background-color: #f7fffc; }
+  .fillPage input[type=submit] {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    background-color: #c9eddc;
+    border-style: none;
+    border: 2px solid #e9ebee;
+    margin: 10px auto; }
+  .fillPage input[type=submit]:hover,
+  .fillPage input[type=submit]:active {
+    background-color: #c9eddc;
+    border: 2px solid #a7c4a0; }
+
 .listView {
   display: flex;
   flex-direction: row;

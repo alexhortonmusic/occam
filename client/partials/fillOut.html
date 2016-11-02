@@ -1,25 +1,47 @@
-<h1>Tell us about you</h1>
-
-<form ng-submit='newUserInfo()'>
+<div class='fillPage'>
+  <h2>We know your email is {{ userEmail }}, but can you tell us a bit more about yourself?</h2>
   
-  <label for='firstName'>First Name: </label>
-  <input type="text" name='firstName' ng-model='firstName'>
+  <form ng-submit='newUserInfo()'>
 
-  <label for='lastName'>Last Name: </label>
-  <input type="text" name='lastName' ng-model='lastName'>
+    <div class='fillForm'>
 
-  <label for='bio'>Bio: </label>
-  <input type="text" name='bio' ng-model='bio'>
+      <div class='inputWrap'>
+        <div class='fillInputs'>
+          <label for='firstName'>First Name: </label>
+          <input type="text" name='firstName' ng-model='firstName'>
+        </div>
 
-  <label for='linkedIn'>LinkedIn: </label>
-  <input type="text" name='linkedIn' ng-model='linkedIn'>
+        <div class='fillInputs'>
+          <label for='lastName'>Last Name: </label>
+          <input type="text" name='lastName' ng-model='lastName'>
+        </div>
 
-  <label for='gitHub'>GitHub: </label>
-  <input type="text" name='gitHub' ng-model='gitHub'>
+        <div class='fillInputs'>
+          <label for='bio'>Bio: </label>
+          <textarea type="text" name='bio' ng-model='bio' rows='4'></textarea>
+        </div>
 
-  <label for='personalSite'>Personal Site: </label>
-  <input type="text" name='personalSite' ng-model='personalSite'>
+        <div class='fillInputs'>
+          <label for='linkedIn'>LinkedIn: </label>
+          <input type="text" name='linkedIn' ng-model='linkedIn'>
+        </div>
 
-  <input type="submit" value='Submit'>
+        <div class='fillInputs'>
+          <label for='gitHub'>GitHub: </label>
+          <input type="text" name='gitHub' ng-model='gitHub'>
+        </div>
 
-</form>
+        <div class='fillInputs'>
+          <label for='personalSite'>Personal Site: </label>
+          <input type="text" name='personalSite' ng-model='personalSite'>
+        </div>
+      </div>
+
+      <input type="submit" value='✔️'>
+
+    </div>
+
+  </form>
+
+
+</div>

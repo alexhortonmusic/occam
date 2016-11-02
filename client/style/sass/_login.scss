@@ -3,7 +3,6 @@
   .splashImg {
     height: 500px;
     background-image: url('../img/quartet-work.jpg');
-    // -webkit-filter: brightness(100%);
     background-size: cover;
     overflow: hidden;
 
@@ -21,7 +20,6 @@
         font-size: 4.2rem;
         color: $purple;
         margin: 0;
-        // margin-bottom: 20px;
       }
 
       h2 {
@@ -92,7 +90,6 @@
         input[type=submit]:active {
           background-color: $mint;
           border: 2px solid $green;
-
         }
 
         .warning {
