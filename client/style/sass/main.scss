@@ -12,12 +12,12 @@ $smoke: #e9ebee;
 @import 'profile';
 @import 'board';
 
-* {
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Lato', sans-serif;
-  font-weight: 300;
+  background-color: $smoke;
 }
 
 .container {

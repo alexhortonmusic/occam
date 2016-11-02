@@ -3,47 +3,126 @@
   .splashImg {
     height: 500px;
     background-image: url('../img/quartet-work.jpg');
-    -webkit-filter: brightness(100%);
+    // -webkit-filter: brightness(100%);
     background-size: cover;
     overflow: hidden;
 
     .headlineBox {
-      // z-index: 999;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
       background-color: $smoke;
       width: 40%;
       height: 40%;
       margin: 120px auto;
+      text-align: center;
 
       h1 {
+        font-weight: 300;
+        font-size: 4.2rem;
         color: $purple;
+        margin: 0;
+        // margin-bottom: 20px;
       }
 
       h2 {
+        font-weight: 300;
         color: $green;
+        margin: 0;
+        font-size: 3rem;
       }
 
     }
 
   }
 
-  .regLoginBox {
-    display: flex;
-    flex-direction: row;
+  .regLogin {
+    background-color: white;
+    overflow: hidden;
+    height: 450px;
 
-    .register,
-    .login {
-      width: 50%;
+    h1 {
+      color: $green;
+      text-align: center;
+      font-weight: 300;
+      font-size: 3rem;
     }
 
-    .register div,
-    .login div {
-      margin: 0 auto;
+    .regLoginBox {
+      margin: 20px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      .register,
+      .login {
+        width: 48%;
+
+        h3 {
+          color: $green;
+          font-weight: 300;
+          margin-bottom: 8px;
+        }
+
+        input[type=text], input[type=password] {
+          background-color: $smoke;
+          border-style: none;
+          border: 1px solid lightgrey;
+          border-radius: 5px;
+          height: 25px;
+          width: 80%;
+        }
+
+        input[type=text]:active, input[type=password]:active,
+        input[type=text]:hover, input[type=password]:hover {
+          background-color: $white;
+        }
+
+
+        input[type=submit] {
+          height: 40px;
+          width: 40px;
+          border-radius: 50%;
+          background-color: $white;
+          border-style: none;
+          border: 2px solid $smoke;
+          margin-left: 10px;
+        }
+
+        input[type=submit]:hover,
+        input[type=submit]:active {
+          background-color: $mint;
+          border: 2px solid $green;
+
+        }
+
+        .warning {
+          color: $purple;
+        }
+
+        .regWrap {
+          width: 50%;
+          height: 300px;
+          margin: 0 auto;
+          // border: 1px solid black;
+        }
+      }
+
+      .verticalLine {
+        margin-top: 10px;
+        border: 1px solid $smoke;
+        height: 400px;
+      }
+
+
+      .login {
+
+        .logWrap {
+          width: 50%;
+          margin: 0 auto;
+          // border: 1px solid black;
+        }
+
+      }
     }
-
-    .login {
-
-    }
-
   }
-
 }
