@@ -89,5 +89,4 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
     getBoards()
   }
 
-
 })

@@ -194,7 +194,7 @@
       margin-bottom: 30px;
       border-radius: 5px;
       background-color: #c9eddc;
-      width: 200px;
+      width: 220px;
       height: 100px;
       display: flex;
       flex-direction: column;
@@ -226,6 +226,21 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between; }
+  .profilePage .boardsCol #newBoard {
+    display: block;
+    margin: 0 auto;
+    text-align: center; }
+    .profilePage .boardsCol #newBoard input[type=text] {
+      background-color: #e9ebee;
+      border-style: none;
+      border: 1px solid lightgrey;
+      border-radius: 5px;
+      height: 25px;
+      width: 200px; }
+    .profilePage .boardsCol #newBoard input[type=submit] {
+      font-family: 'Lato';
+      height: 45px;
+      margin-left: 10px; }
 
 .listView {
   display: flex;
