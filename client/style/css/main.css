@@ -1,0 +1,15 @@
+.listView {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 90%; }
+  .listView .list {
+    border: 1px solid black;
+    width: 320px; }
+    .listView .list .taskUL li {
+      list-style: none;
+      border: 1px solid red; }
+    .listView .list .taskUL .selectedTask {
+      background-color: #a7c4a0; }
+
+/*# sourceMappingURL=main.css.map */

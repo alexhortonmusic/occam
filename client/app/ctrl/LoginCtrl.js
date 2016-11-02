@@ -17,10 +17,6 @@ app.controller('LoginCtrl', function($scope, $http, $location) {
     let confirmation = $scope.passwordConfirmation
 
     if (password === confirmation) {
-      // LoginFactory.createUser(email, password)
-      // .then(res => {
-      //   console.log(res)
-      // })
       $http
       .post('/api/register', { email, password })
       .then(res => {

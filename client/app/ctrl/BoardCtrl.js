@@ -5,22 +5,28 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   const boardId = $routeParams.boardId
 
   // gets current board
-  $http
-  .get('/api/board/' + boardId)
-  .then(res => {
-    $scope.boardName = res.data.boardName
-    $scope.boardLists = res.data.lists
-  })
+  const getBoard = () => {
+    $http
+    .get('/api/board/' + boardId)
+    .then(res => {
+      $scope.boardName = res.data.boardName
+      $scope.boardLists = res.data.lists
+    })
+  }
+
+  getBoard()
 
   $scope.newList = () => {
     let listName = $scope.listName
-    console.log(listName)
 
     $http
     .patch('/api/board/' + boardId, { name: listName })
     .then(res => {
-      console.log(res.data)
+      // console.log(res.data)
     })
+    $scope.listName = ''
+
+    getBoard()
   }
 
   $scope.deleteList = (list) => {
@@ -30,9 +36,11 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .delete('/api/board/' + boardId + '/' + listId)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     })
+    getBoard()
   }
+
 
   $scope.taskName = []
 
@@ -40,25 +48,25 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     let taskName = $scope.taskName[index]
     let listId = list._id
 
-    console.log(listId)
-
     $http
     .patch('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
-      console.log(res.data)
+      // console.log(res.data)
     })
+    $scope.taskName[index] = ''
+    getBoard()
   }
 
-  $scope.deleteTask = (task, list) => {
-    console.log(task)
-    console.log(list)
+  $scope.deleteTask = (taskName, list) => {
+    console.log(taskName)
     let listId = list._id
 
     $http
-    .delete('/api/board/' + boardId + '/' + listId + '/' + task)
+    .delete('/api/board/' + boardId + '/' + listId + '/' + taskName)
     .then(res => {
-      console.log(res)
+      // console.log(res)
     })
+    getBoard()
   }
 
   // array used to manipulate dynamically created models with booleans
@@ -72,14 +80,46 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
   $scope.editList = (index, listId) => {
     let newTitle = $scope.listEdit[index]
 
-    console.log(listId)
-    console.log(newTitle)
-
     $http
     .put(`/api/board/${boardId}/${listId}`, { newTitle })
     .then(res => {
-      console.log(res)
-      $scope.showEditBoxList[index] = false
+      // console.log(res)
     })
+
+    $scope.showEditBoxList[index] = false
+    $scope.listEdit[index] = ''
+    getBoard()
+  }
+
+  $scope.selectedTask = []
+
+  let taskName
+  let oldList
+  $scope.taskToMove = (list, task, e) => {
+    $('.task').removeClass('selectedTask')
+    let test = $(e.target)
+    test.addClass('selectedTask')
+    taskName = task
+    oldList = list
+  }
+
+  $scope.taskToNewBoard = (newList) => {
+    let oldListId = oldList._id
+    let listId = newList._id
+
+    // deletes task from current list
+    $http
+    .delete('/api/board/' + boardId + '/' + oldListId + '/' + taskName)
+    .then(res => {
+      // console.log(res.data)
+    })
+
+    // adds task to new list
+    $http
+    .patch('/api/board/' + boardId + '/' + listId, { taskName })
+    .then( res => {
+      // console.log(res.data)
+    })
+    getBoard()
   }
 })
