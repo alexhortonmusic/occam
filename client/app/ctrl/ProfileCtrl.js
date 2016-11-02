@@ -5,12 +5,16 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
   let userId = $routeParams.id
 
   // gets existing boards
-  $http
-  .get('/api/profile/' + userId)
-  .then(res => {
-    console.log(res)
-    $scope.boards = res.data
-  })
+  const getBoards = () => {
+    $http
+    .get('/api/profile/' + userId)
+    .then(res => {
+      console.log(res)
+      $scope.boards = res.data
+    })
+  }
+
+  getBoards()
 
   $scope.createBoard = () => {
 
@@ -29,6 +33,10 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
     .then(res => {
       console.log(res)
     })
+
+    $scope.boardName = ''
+
+    getBoards()
   }
 
   $scope.showEdit = []
@@ -52,6 +60,7 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
     .then(updatedBoard => {
       console.log(updatedBoard)
     })
+    getBoards()
   }
 
   $scope.deleteBoard = (boardId) => {
@@ -61,6 +70,7 @@ app.controller('ProfileCtrl', function($scope, $http, $location, $routeParams) {
     .then(res => {
       console.log(res)
     })
+    getBoards()
   }
 
 
