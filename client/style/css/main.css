@@ -1,3 +1,18 @@
+nav {
+  background-color: #6a706e;
+  overflow: hidden;
+  height: 60px; }
+  nav div {
+    display: flex;
+    flex-direction: row; }
+    nav div .navLogo {
+      align-self: flex-end; }
+      nav div .navLogo h2 {
+        color: #f7fffc;
+        font-weight: 300;
+        font-size: 2rem;
+        margin: 20px 0 0 20px; }
+
 .loginPage .splashImg {
   height: 500px;
   background-image: url("../img/quartet-work.jpg");

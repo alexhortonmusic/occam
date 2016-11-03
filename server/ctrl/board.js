@@ -20,8 +20,9 @@ module.exports.edit = (req, res, err) => {
     if (err) {
       console.log('Something went wrong')
     } else {
-      res.json(doc)
+      // console.log(doc)
     }
+    res.json(doc)
   })
 }
 
@@ -48,6 +49,7 @@ module.exports.new = (req, res, err) => {
     board.save()
     res.json(board)
   })
+  .catch(err)
 }
 
 // deletes a list from a board
@@ -62,14 +64,13 @@ module.exports.destroy = (req, res, err) => {
     board.save()
     res.json(board)
   })
+  .catch(err)
 }
 
-module.exports.taskDestroy = (req, res, err) => { 
+module.exports.taskDestroy = (req, res, err) => {
   let boardId = req.params.boardId
   let listId = req.params.listId
   let taskToDelete = req.params.task
-
-  console.log(boardId, listId, taskToDelete)
 
   Board.findOne({ _id: boardId })
   .then(board => {
@@ -89,6 +90,7 @@ module.exports.taskDestroy = (req, res, err) => {
     board.save()
     res.json(board)
   })
+  .catch(err)
 }
 
 module.exports.editList = (req, res, err) => {
@@ -108,4 +110,5 @@ module.exports.editList = (req, res, err) => {
     board.save()
     res.json(board)
   })
+  .catch(err)
 }
