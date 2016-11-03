@@ -30,10 +30,9 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .patch('/api/board/' + boardId, { name: listName })
     .then(res => {
-      // console.log(res.data)
+      console.log(res.data)
     })
     $scope.listName = ''
-
     getBoard()
   }
 
@@ -44,7 +43,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .delete('/api/board/' + boardId + '/' + listId)
     .then(res => {
-      // console.log(res)
+      console.log(res)
     })
     getBoard()
   }
@@ -59,7 +58,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .patch('/api/board/' + boardId + '/' + listId, { taskName })
     .then( res => {
-      // console.log(res.data)
+      console.log(res.data)
     })
     $scope.taskName[index] = ''
     getBoard()
@@ -72,7 +71,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .delete('/api/board/' + boardId + '/' + listId + '/' + taskName)
     .then(res => {
-      // console.log(res)
+      console.log(res)
     })
     getBoard()
   }
@@ -91,7 +90,7 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
     $http
     .put(`/api/board/${boardId}/${listId}`, { newTitle })
     .then(res => {
-      // console.log(res)
+      console.log(res)
     })
 
     $scope.showEditBoxList[index] = false
@@ -122,15 +121,16 @@ app.controller('BoardCtrl', function($scope, $http, $location, $routeParams) {
       $http
       .delete('/api/board/' + boardId + '/' + oldListId + '/' + taskName)
       .then(res => {
-        // console.log(res.data)
+        console.log(res.data)
       })
 
       // adds task to new list
       $http
       .patch('/api/board/' + boardId + '/' + listId, { taskName })
       .then( res => {
-        // console.log(res.data)
+        console.log(res.data)
       })
+
       getBoard()
     }
 

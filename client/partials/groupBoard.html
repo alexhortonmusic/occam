@@ -1,41 +1,58 @@
-<!-- back button -->
-<form><input type="button" value="<< Go Back" onClick="history.go(-1);return true;"></form>
-<h1>{{ boardName }}</h1>
+<div class='boardPage'>
 
+  <div class='topRow'>
 
-<h2>New List</h2>
-<form ng-submit='newList()'>
-  <input type="text" ng-model='listName'>
-  <input type="submit" value='Submit'>
-</form>
-
-<div class='listView'>
-  <div ng-repeat='list in boardLists' class='list'>
-
-    <div ng-show='!showEditBoxList[$index]'>
-      <h2 ng-click='taskToNewBoard(list)'>{{ list.name }}</h2>
-      <button ng-click='deleteList(list)'>Delete List</button>
-      <button ng-click='showEditList($index)'>Edit Title</button>
+    <div class='back-board'>
+      <!-- back button -->
+      <form><input type="button" value="<< Go Back" onClick="history.go(-1);return true;"></form>
+      <h1>{{ boardName }}</h1>
     </div>
 
-    <div ng-show='showEditBoxList[$index]'>
-      <p>Edit List Title</p>
-      <form ng-submit='editList($index, list._id)'>
-        <input type="text" ng-model='listEdit[$index]'>
-        <input type="submit" value='Save Edit'>
+    <div class='createList'>
+      <h3>Start a new list:</h3>
+      <form ng-submit='newList()' class='newList'>
+        <input type="text" ng-model='listName'>
+        <input type="submit" value='Submit'>
       </form>
     </div>
 
-    <form ng-submit='newTask($index, list)'>
-      <input type="text" ng-model='taskName[$index]'>
-      <input type="submit" value='Submit'>
-    </form>
-
-    <ul class='taskUL'>
-      <li ng-repeat='task in list.tasks' ng-click='taskToMove(list, task, $event)' class='task'>
-        <p>{{ task }}</p>
-        <button ng-click='deleteTask(task, list)'>Delete Task</button>
-      </li>
-    </ul>
   </div>
+
+  <p>To move a task, click task, and then click the board title you wish to move it to.</p>
+
+
+  <div class='listView'>
+    <div ng-repeat='list in boardLists' class='list'>
+
+      <div ng-show='!showEditBoxList[$index]'>
+        <h2 ng-click='taskToNewBoard(list)'>{{ list.name }}</h2>
+        <div class='listIcon'>
+          <i class="fa fa-trash-o" aria-hidden="true" ng-click='deleteList(list)'></i>
+          <i class="fa fa-pencil-square-o" aria-hidden="true" ng-click='showEditList($index)'></i>
+        </div>
+      </div>
+
+      <div ng-show='showEditBoxList[$index]' class='editList'>
+        <h3>Edit</h3>
+        <form ng-submit='editList($index, list._id)'>
+          <input type="text" ng-model='listEdit[$index]' placeholder='Edit List Title'>
+          <input type="submit" value='Save'>
+        </form>
+      </div>
+
+      <form ng-submit='newTask($index, list)' class='addTask'>
+        <input type="text" ng-model='taskName[$index]' placeholder='i.e. fix bug, etc'>
+        <input type="submit" value='Add task'>
+      </form>
+
+      <ul class='taskUL'>
+        <li ng-repeat='task in list.tasks' ng-click='taskToMove(list, task, $event)' class='task'>
+          <p>{{ task }}</p>
+          <!-- <button ng-click='deleteTask(task, list)'>Delete Task</button> -->
+          <i class="fa fa-trash-o" aria-hidden="true" ng-click='deleteTask(task, list)'></i>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 </div>
