@@ -20,5 +20,4 @@ module.exports.create = ({ session, body }, res, err) => {
     console.log("DOC", doc)
     res.json(doc)
   })
-  .catch(err)
 }
