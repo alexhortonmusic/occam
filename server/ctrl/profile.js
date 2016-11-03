@@ -9,6 +9,7 @@ module.exports.index = (req, res, err) => {
   .then(boards => {
     res.json(boards)
   })
+  .catch(err)
 }
 
 module.exports.getUser = (req, res, err) => {
@@ -18,12 +19,14 @@ module.exports.getUser = (req, res, err) => {
   .then(user => {
     res.json(user)
   })
+  .catch(err)
 }
 
 module.exports.create = (req, res, err) => {
   let newBoard = req.body
   Board.create(newBoard)
   .then(board => res.json(board))
+  .catch(err)
 }
 
 module.exports.edit = (req, res, err) => {
@@ -50,4 +53,5 @@ module.exports.destroy = (req, res, err) => {
       res.json('deleted')
     }
   })
+  .catch(err)
 }

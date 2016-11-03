@@ -1,3 +1,18 @@
+nav {
+  background-color: #6a706e;
+  overflow: hidden;
+  height: 60px; }
+  nav div {
+    display: flex;
+    flex-direction: row; }
+    nav div .navLogo {
+      align-self: flex-end; }
+      nav div .navLogo h2 {
+        color: #f7fffc;
+        font-weight: 300;
+        font-size: 2rem;
+        margin: 20px 0 0 20px; }
+
 .loginPage .splashImg {
   height: 500px;
   background-image: url("../img/quartet-work.jpg");
@@ -148,10 +163,10 @@
     min-height: 400px;
     height: 40%;
     background-color: #4c3b4d;
-    color: #c9eddc;
+    color: #f7fffc;
     margin-top: 100px;
     margin-left: 40px; }
-    .profilePage .bioCol h3, .profilePage .bioCol h4 {
+    .profilePage .bioCol h3 {
       text-align: center; }
     .profilePage .bioCol p {
       text-align: center;

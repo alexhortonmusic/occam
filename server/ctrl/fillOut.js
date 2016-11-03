@@ -7,6 +7,7 @@ module.exports.index = ({ session: { email }}, res, err) => {
   .then( user => {
     res.json(user)
   })
+  .catch(err)
 }
 
 module.exports.create = ({ session, body }, res, err) => {
