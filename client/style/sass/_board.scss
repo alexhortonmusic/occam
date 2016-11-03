@@ -1,25 +1,157 @@
+.boardPage {
+  background-color: $white;
+  min-height: 800px;
 
 
+  .topRow {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 
-.listView {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 90%;
+    .back-board {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 300px;
+      height: 70px;
+      margin-top: 15px;
 
-  .list {
-    border: 1px solid black;
-    width: 320px;
-
-    .taskUL {
-
-      li {
-        list-style: none;
-        border: 1px solid red;
+      form {
+        align-self: baseline;
       }
 
-      .selectedTask {
-        background-color: $green;
+      h1 {
+        color: $purple;
+        margin: 0;
+        margin-top: 15px;
+        align-self: baseline;
+        font-weight: 300;
+        border-bottom: 1px solid $purple;
+      }
+
+    }
+
+    .createList {
+      margin-right: 120px;
+
+      h3 {
+        text-align: center;
+        font-weight: 300;
+      }
+
+      .newList {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+    }
+
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    color: $green;
+  }
+
+
+  .listView {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    // width: 90%;
+    justify-content: space-around;
+
+    .list {
+      border: 1px solid $grey;
+      border-radius: 5px;
+      width: 220px;
+      min-height: 500px;
+      background-color: white;
+
+      h2 {
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .listIcon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        i {
+          margin: 0 10px;
+        }
+      }
+
+      .editList {
+        height: 85px;
+        overflow: hidden;
+
+        h3 {
+          color: $purple;
+          margin-bottom: 0;
+          font-weight: 300;
+          text-align: center;
+        }
+
+        form {
+          text-align: center;
+
+          input[type=text] {
+            border-radius: 5px;
+            border-style: none;
+            border: 1px solid $grey;
+            background-color: $white;
+          }
+        }
+      }
+
+      .addTask {
+        text-align: center;
+
+        input[type=text] {
+          border-radius: 5px;
+          border-style: none;
+          border: 1px solid $grey;
+          background-color: $white;
+        }
+      }
+
+      .taskUL {
+
+        padding-left: 0;
+
+        li {
+          list-style: none;
+          border: 1px solid $grey;
+          border-radius: 5px;
+          min-height: 30px;
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          background-color: $white;
+          margin: 0 auto 15px;
+
+
+          p {
+            margin: 0;
+            margin-left: 10px;
+            color: $purple;
+          }
+
+          i {
+            margin: 5px;
+            // margin-left: 5px;
+          }
+        }
+
+        .selectedTask {
+          background-color: $green;
+        }
       }
     }
   }

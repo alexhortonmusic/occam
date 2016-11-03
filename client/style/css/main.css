@@ -149,7 +149,8 @@
     height: 40%;
     background-color: #4c3b4d;
     color: #c9eddc;
-    margin-top: 100px; }
+    margin-top: 100px;
+    margin-left: 40px; }
     .profilePage .bioCol h3, .profilePage .bioCol h4 {
       text-align: center; }
     .profilePage .bioCol p {
@@ -203,6 +204,7 @@
         text-decoration: none;
         color: #6a706e;
         font-size: 1.5rem;
+        font-weight: 300;
         text-align: center;
         transition: 0.2s; }
       .profilePage .boardsCol .boards .existingBoard .boardName:hover {
@@ -242,19 +244,106 @@
       height: 45px;
       margin-left: 10px; }
 
-.listView {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  width: 90%; }
-  .listView .list {
-    border: 1px solid black;
-    width: 320px; }
-    .listView .list .taskUL li {
-      list-style: none;
-      border: 1px solid red; }
-    .listView .list .taskUL .selectedTask {
-      background-color: #a7c4a0; }
+.boardPage {
+  background-color: #f7fffc;
+  min-height: 800px; }
+  .boardPage .topRow {
+    height: 120px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+    .boardPage .topRow .back-board {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      width: 300px;
+      height: 70px;
+      margin-top: 15px; }
+      .boardPage .topRow .back-board form {
+        align-self: baseline; }
+      .boardPage .topRow .back-board h1 {
+        color: #4c3b4d;
+        margin: 0;
+        margin-top: 15px;
+        align-self: baseline;
+        font-weight: 300;
+        border-bottom: 1px solid #4c3b4d; }
+    .boardPage .topRow .createList {
+      margin-right: 120px; }
+      .boardPage .topRow .createList h3 {
+        text-align: center;
+        font-weight: 300; }
+      .boardPage .topRow .createList .newList {
+        text-align: center;
+        margin-bottom: 60px; }
+  .boardPage p {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 60px;
+    color: #a7c4a0; }
+  .boardPage .listView {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around; }
+    .boardPage .listView .list {
+      border: 1px solid #6a706e;
+      border-radius: 5px;
+      width: 220px;
+      min-height: 500px;
+      background-color: white; }
+      .boardPage .listView .list h2 {
+        font-weight: 300;
+        text-align: center; }
+      .boardPage .listView .list .listIcon {
+        display: flex;
+        flex-direction: row;
+        justify-content: center; }
+        .boardPage .listView .list .listIcon i {
+          margin: 0 10px; }
+      .boardPage .listView .list .editList {
+        height: 85px;
+        overflow: hidden; }
+        .boardPage .listView .list .editList h3 {
+          color: #4c3b4d;
+          margin-bottom: 0;
+          font-weight: 300;
+          text-align: center; }
+        .boardPage .listView .list .editList form {
+          text-align: center; }
+          .boardPage .listView .list .editList form input[type=text] {
+            border-radius: 5px;
+            border-style: none;
+            border: 1px solid #6a706e;
+            background-color: #f7fffc; }
+      .boardPage .listView .list .addTask {
+        text-align: center; }
+        .boardPage .listView .list .addTask input[type=text] {
+          border-radius: 5px;
+          border-style: none;
+          border: 1px solid #6a706e;
+          background-color: #f7fffc; }
+      .boardPage .listView .list .taskUL {
+        padding-left: 0; }
+        .boardPage .listView .list .taskUL li {
+          list-style: none;
+          border: 1px solid #6a706e;
+          border-radius: 5px;
+          min-height: 30px;
+          width: 90%;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          background-color: #f7fffc;
+          margin: 0 auto 15px; }
+          .boardPage .listView .list .taskUL li p {
+            margin: 0;
+            margin-left: 10px;
+            color: #4c3b4d; }
+          .boardPage .listView .list .taskUL li i {
+            margin: 5px; }
+        .boardPage .listView .list .taskUL .selectedTask {
+          background-color: #a7c4a0; }
 
 body {
   margin: 0;
